@@ -1139,6 +1139,204 @@
         transform: translateY(-3px);
       }
 
+      /* Media Gallery Section */
+      .media-gallery {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--bg-light) 0%, #f0f4ff 100%);
+        overflow: hidden;
+      }
+
+      .media-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .media-category {
+        margin-bottom: 80px;
+      }
+
+      .category-title {
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 30px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .category-title i {
+        color: var(--accent-color);
+        font-size: 1.8rem;
+      }
+
+      .media-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .media-item {
+        position: relative;
+        border-radius: var(--border-radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+        background: var(--bg-white);
+        cursor: pointer;
+      }
+
+      .media-item:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .media-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .media-item video {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .media-item:hover video {
+        transform: scale(1.05);
+      }
+
+      .media-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .media-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--gradient-primary);
+        color: white;
+        padding: 20px;
+        transform: translateY(100%);
+        transition: var(--transition);
+      }
+
+      .media-item:hover .media-overlay {
+        transform: translateY(0);
+      }
+
+      .media-overlay h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .media-overlay p {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        margin: 0;
+      }
+
+      .media-cta {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 50px 40px;
+        border-radius: var(--border-radius-lg);
+        text-align: center;
+        margin-top: 60px;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .media-cta h3 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .media-cta p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 30px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--accent-color);
+        color: white;
+        padding: 15px 30px;
+        border-radius: var(--border-radius-sm);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        box-shadow: var(--shadow-md);
+      }
+
+      .cta-button:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      /* Media Gallery Responsive */
+      @media (max-width: 768px) {
+        .media-gallery {
+          padding: 60px 0;
+        }
+
+        .category-title {
+          font-size: 1.6rem;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .media-grid {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+        }
+
+        .media-item img {
+          height: 200px;
+        }
+
+        .media-item video {
+          height: 200px;
+        }
+
+        .media-overlay {
+          padding: 15px;
+        }
+
+        .media-overlay h4 {
+          font-size: 1.1rem;
+        }
+
+        .media-cta {
+          padding: 30px 20px;
+          margin-top: 40px;
+        }
+
+        .media-cta h3 {
+          font-size: 1.5rem;
+        }
+
+        .media-cta p {
+          font-size: 1rem;
+        }
+      }
+
       /* Contact Section */
       .contact {
         padding: 8rem 0;
@@ -1525,6 +1723,7 @@
             <li><a href="#how-it-works">Process</a></li>
             <li><a href="#testimonials">Success Stories</a></li>
             <li><a href="#team">Team</a></li>
+            <li><a href="#media-gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -1840,13 +2039,21 @@
           <h3>Sankei Ole Kenga</h3>
           <p>Chief Executive Officer</p>
           <div class="team-social">
-            <a href="#" aria-label="LinkedIn Profile"
+            <a
+              href="https://www.linkedin.com/company/enkisoma-africa"
+              aria-label="Enkisoma Africa LinkedIn Page"
+              target="_blank"
+              rel="noopener noreferrer"
               ><i class="fab fa-linkedin-in"></i
               ><span class="sr-only">LinkedIn</span></a
             >
-            <a href="#" aria-label="Twitter Profile"
-              ><i class="fab fa-twitter"></i
-              ><span class="sr-only">Twitter</span></a
+            <a
+              href="https://x.com/enkisoma"
+              aria-label="Enkisoma Africa X Profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fab fa-x-twitter"></i
+              ><span class="sr-only">X (formerly Twitter)</span></a
             >
             <a href="#" aria-label="Send Email"
               ><i class="fas fa-envelope"></i
@@ -1860,13 +2067,21 @@
           <h3>Elizabeth Nyawira</h3>
           <p>Strategy Finance - M&E</p>
           <div class="team-social">
-            <a href="#" aria-label="LinkedIn Profile"
+            <a
+              href="https://www.linkedin.com/company/enkisoma-africa"
+              aria-label="Enkisoma Africa LinkedIn Page"
+              target="_blank"
+              rel="noopener noreferrer"
               ><i class="fab fa-linkedin-in"></i
               ><span class="sr-only">LinkedIn</span></a
             >
-            <a href="#" aria-label="Twitter Profile"
-              ><i class="fab fa-twitter"></i
-              ><span class="sr-only">Twitter</span></a
+            <a
+              href="https://x.com/enkisoma"
+              aria-label="Enkisoma Africa X Profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fab fa-x-twitter"></i
+              ><span class="sr-only">X (formerly Twitter)</span></a
             >
             <a href="#" aria-label="Send Email"
               ><i class="fas fa-envelope"></i
@@ -1880,13 +2095,21 @@
           <h3>Fareed Khimani</h3>
           <p>Communications Director</p>
           <div class="team-social">
-            <a href="#" aria-label="LinkedIn Profile"
+            <a
+              href="https://www.linkedin.com/company/enkisoma-africa"
+              aria-label="Enkisoma Africa LinkedIn Page"
+              target="_blank"
+              rel="noopener noreferrer"
               ><i class="fab fa-linkedin-in"></i
               ><span class="sr-only">LinkedIn</span></a
             >
-            <a href="#" aria-label="Twitter Profile"
-              ><i class="fab fa-twitter"></i
-              ><span class="sr-only">Twitter</span></a
+            <a
+              href="https://x.com/enkisoma"
+              aria-label="Enkisoma Africa X Profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fab fa-x-twitter"></i
+              ><span class="sr-only">X (formerly Twitter)</span></a
             >
             <a href="#" aria-label="Send Email"
               ><i class="fas fa-envelope"></i
@@ -1900,19 +2123,177 @@
           <h3>Maina Gichira</h3>
           <p>Accounting</p>
           <div class="team-social">
-            <a href="#" aria-label="LinkedIn Profile"
+            <a
+              href="https://www.linkedin.com/company/enkisoma-africa"
+              aria-label="Enkisoma Africa LinkedIn Page"
+              target="_blank"
+              rel="noopener noreferrer"
               ><i class="fab fa-linkedin-in"></i
               ><span class="sr-only">LinkedIn</span></a
             >
-            <a href="#" aria-label="Twitter Profile"
-              ><i class="fab fa-twitter"></i
-              ><span class="sr-only">Twitter</span></a
+            <a
+              href="https://x.com/enkisoma"
+              aria-label="Enkisoma Africa X Profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fab fa-x-twitter"></i
+              ><span class="sr-only">X (formerly Twitter)</span></a
             >
             <a href="#" aria-label="Send Email"
               ><i class="fas fa-envelope"></i
               ><span class="sr-only">Email</span></a
             >
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Media & Launch Gallery Section -->
+    <section id="media-gallery" class="media-gallery">
+      <h2 class="section-title">
+        Media <span class="highlight-text">Gallery</span>
+      </h2>
+      <p class="section-subtitle">
+        Showcasing our launches, exhibitions, and media coverage
+      </p>
+
+      <div class="media-container">
+        <!-- Launch Images Category -->
+        <div class="media-category">
+          <h3 class="category-title">
+            <i class="fas fa-rocket"></i>
+            School Launch Events
+          </h3>
+          <div class="media-grid">
+            <div class="media-item">
+              <img
+                src="images/Alliance High School Lab Launch .jpg"
+                alt="Alliance High School Lab Launch Event"
+                loading="lazy"
+              />
+              <div class="media-overlay">
+                <h4>Alliance High School Launch</h4>
+                <p>Digital lab inauguration ceremony</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img
+                src="images/Alliance High School Lab Launch principal plus student .jpg"
+                alt="Principal and student at Alliance High School launch"
+                loading="lazy"
+              />
+              <div class="media-overlay">
+                <h4>Leadership & Students</h4>
+                <p>Principal engaging with students</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img
+                src="images/Alliance High School Lab Launch2 .jpg"
+                alt="Alliance High School Lab Launch Event 2"
+                loading="lazy"
+              />
+              <div class="media-overlay">
+                <h4>Technology Integration</h4>
+                <p>Students exploring digital resources</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img
+                src="images/Alliance High School Lab Launch3 .jpg"
+                alt="Alliance High School Lab Launch Event 3"
+                loading="lazy"
+              />
+              <div class="media-overlay">
+                <h4>Community Engagement</h4>
+                <p>Bringing digital education to life</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Media Coverage & Exhibitions Category -->
+        <div class="media-category">
+          <h3 class="category-title">
+            <i class="fas fa-newspaper"></i>
+            Media Coverage & Exhibitions
+          </h3>
+          <div class="media-grid">
+            <div class="media-item">
+              <video muted autoplay loop loading="lazy" poster="">
+                <source
+                  src="images/zanziba_video.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+              <div class="media-overlay">
+                <h4>Zanzibar Lab Launch</h4>
+                <p>
+                  First computer lab launch at Lumumba Secondary School,
+                  Zanzibar in partnership with Government of Zanzibar and Access
+                  Platinum Capital
+                </p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img
+                src="images/ENkisoma Stand- Mulot ICT launch.jpg"
+                alt="Enkisoma exhibition stand at Mulot ICT launch"
+                loading="lazy"
+              />
+              <div class="media-overlay">
+                <h4>Mulot ICT Launch</h4>
+                <p>Enkisoma exhibition presence</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img
+                src="images/Exhibition stand photo - Mulot.jpg"
+                alt="Enkisoma exhibition stand at Mulot"
+                loading="lazy"
+              />
+              <div class="media-overlay">
+                <h4>Exhibition Stand</h4>
+                <p>Showcasing our solutions</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img
+                src="images/Enkisoma banner.jpg"
+                alt="Enkisoma promotional banner"
+                loading="lazy"
+              />
+              <div class="media-overlay">
+                <h4>Brand Presence</h4>
+                <p>Promoting digital education access</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img
+                src="images/Alliance high school lab.jpg"
+                alt="Alliance High School digital lab setup"
+                loading="lazy"
+              />
+              <div class="media-overlay">
+                <h4>Lab Infrastructure</h4>
+                <p>Modern learning environment</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="media-cta">
+          <h3>Want to see Enkisoma in action at your school?</h3>
+          <p>
+            Join the growing number of schools transforming education with
+            affordable digital solutions.
+          </p>
+          <a href="#contact" class="cta-button">
+            <i class="fas fa-calendar-alt"></i>
+            Schedule a Demo
+          </a>
         </div>
       </div>
     </section>
