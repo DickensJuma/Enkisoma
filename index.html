@@ -1,0 +1,2242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enkisoma Africa - Access. Enlighten. Empower.</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #133d7b;
+        --secondary-color: #0f2d5a;
+        --accent-color: #f06c22;
+        --accent-hover: #d85a1a;
+        --tertiary-color: #7a41d8;
+        --text-primary: #333;
+        --text-secondary: #666;
+        --bg-light: #f8f9fd;
+        --bg-white: #ffffff;
+        --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.15);
+        --border-radius-sm: 8px;
+        --border-radius-md: 12px;
+        --border-radius-lg: 20px;
+        --transition: all 0.3s ease;
+        --gradient-primary: linear-gradient(135deg, #133d7b 0%, #7a41d8 100%);
+        --gradient-secondary: linear-gradient(135deg, #f06c22 0%, #d85a1a 100%);
+        --gradient-tertiary: linear-gradient(135deg, #7a41d8 0%, #133d7b 100%);
+        --gradient-hero: linear-gradient(
+          135deg,
+          rgba(19, 61, 123, 0.8) 0%,
+          rgba(122, 65, 216, 0.8) 100%
+        );
+      }
+
+      /* Screen reader only class */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-primary);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      /* Preloader */
+      .preloader {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+      }
+
+      .preloader.fade-out {
+        opacity: 0;
+      }
+
+      /* Header */
+      .header {
+        background: linear-gradient(
+            135deg,
+            rgba(19, 61, 123, 0.95) 0%,
+            rgba(122, 65, 216, 0.95) 100%
+          ),
+          url("./images/Alliance high school lab.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        transition: var(--transition);
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+      }
+
+      .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .logo-image {
+        height: 50px;
+        width: auto;
+        border-radius: 8px;
+        background: white;
+        padding: 5px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo {
+        font-size: 1.4rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+
+      .tagline {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        margin-top: 0.2rem;
+        letter-spacing: 1px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: var(--transition);
+        padding: 0.5rem 1rem;
+        border-radius: var(--border-radius-sm);
+        font-weight: 500;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: white;
+        transition: var(--transition);
+        transform: translateX(-50%);
+      }
+
+      .nav-links a:hover::after {
+        width: 80%;
+      }
+
+      .nav-links a:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Mobile Menu */
+      .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 1001;
+      }
+      @media (max-width: 768px) {
+        .mobile-menu-toggle {
+          display: block;
+        }
+
+        .logo-section {
+          gap: 0.5rem;
+        }
+
+        .logo-image {
+          height: 40px;
+        }
+
+        .logo {
+          font-size: 1.4rem;
+        }
+
+        .tagline {
+          font-size: 0.8rem;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 70%;
+          height: 100vh;
+          background: var(--primary-color);
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 2rem;
+          transition: var(--transition);
+          z-index: 1000;
+          box-shadow: var(--shadow-lg);
+        }
+
+        .nav-links.active {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 1.5rem 0;
+        }
+
+        .nav-links a {
+          font-size: 1.2rem;
+        }
+
+        .mobile-menu-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 999;
+          display: none;
+        }
+
+        .mobile-menu-overlay.active {
+          display: block;
+        }
+      }
+
+      /* Hero Section */
+      .hero {
+        background: var(--gradient-hero), url("./images/bg_student.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding-top: 80px;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        animation: float 20s ease-in-out infinite;
+      }
+
+      .hero-shape {
+        position: absolute;
+        bottom: -10%;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        background: var(--bg-white);
+        clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+        z-index: 1;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(1deg);
+        }
+      }
+
+      .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        color: white;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-title-highlight {
+        color: #fff;
+        background: rgba(255, 107, 107, 0.2);
+        padding: 0 12px;
+        border-radius: 4px;
+        display: inline-block;
+        transform: rotate(-2deg);
+      }
+
+      .hero h1 {
+        font-size: 3.8rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        animation: slideUp 1s ease 0.5s forwards;
+        line-height: 1.2;
+      }
+
+      .hero-subtitle {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+        opacity: 0;
+        animation: slideUp 1s ease 0.7s forwards;
+        max-width: 700px;
+        font-weight: 500;
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+        max-width: 650px;
+        margin: 0 auto 3rem;
+        opacity: 0;
+        animation: slideUp 1s ease 0.9s forwards;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1.2rem;
+        justify-content: center;
+        margin-top: 2rem;
+        opacity: 0;
+        animation: slideUp 1s ease 1.1s forwards;
+      }
+
+      .btn {
+        padding: 1rem 2.2rem;
+        border: none;
+        border-radius: var(--border-radius-md);
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: var(--transition);
+        z-index: -1;
+      }
+
+      .btn:hover::before {
+        width: 100%;
+      }
+
+      .btn-primary {
+        background: var(--accent-color);
+        color: white;
+        box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-hover);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          background-attachment: scroll;
+          background-size: cover;
+          background-position: center top;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+          padding: 0 10px;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+          padding: 0 10px;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+
+      /* Stats Section */
+      .stats {
+        background: var(--bg-light);
+        padding: 5rem 0;
+        position: relative;
+      }
+
+      .stats-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .stat-item {
+        background: var(--bg-white);
+        padding: 2.5rem 1.5rem;
+        border-radius: var(--border-radius-md);
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        height: 100%;
+      }
+
+      .stat-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        z-index: -1;
+      }
+
+      .stat-item:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .stat-number {
+        font-size: 3.2rem;
+        font-weight: 700;
+        background: linear-gradient(
+          45deg,
+          var(--primary-color),
+          var(--tertiary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 0.8rem;
+        line-height: 1;
+        display: inline-block;
+      }
+
+      .stat-label {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+      }
+
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+
+      .animation-delay-200 {
+        animation-delay: 0.2s;
+      }
+
+      .animation-delay-400 {
+        animation-delay: 0.4s;
+      }
+
+      .animation-delay-600 {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes floating {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Features Section */
+      .features {
+        padding: 8rem 0;
+        background: var(--bg-white);
+        position: relative;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.8rem;
+        margin-bottom: 1.2rem;
+        color: var(--primary-color);
+        position: relative;
+        display: block;
+        font-weight: 700;
+        width: 100%;
+      }
+
+      .section-title-container {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        margin-bottom: 4.5rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+      }
+
+      .highlight-text {
+        position: relative;
+        z-index: 1;
+      }
+
+      .highlight-text::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30%;
+        background-color: rgba(255, 107, 107, 0.15);
+        z-index: -1;
+        transform: rotate(-2deg);
+      }
+
+      .features-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .feature-card {
+        text-align: center;
+        padding: 3rem 2rem;
+        border-radius: var(--border-radius-lg);
+        background: var(--bg-white);
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        height: 100%;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        transition: var(--transition);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-15px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .feature-card:hover::before {
+        height: 8px;
+      }
+
+      .feature-icon {
+        width: 90px;
+        height: 90px;
+        background: var(--gradient-primary);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        font-size: 2.2rem;
+        color: white;
+        transform: rotate(45deg);
+        transition: var(--transition);
+      }
+
+      .feature-icon i {
+        transform: rotate(-45deg);
+      }
+
+      .feature-card:hover .feature-icon {
+        border-radius: 50%;
+        transform: rotate(0deg);
+        background: var(--gradient-secondary);
+      }
+
+      .feature-card:hover .feature-icon i {
+        transform: rotate(0deg);
+      }
+
+      .feature-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .feature-description {
+        color: var(--text-secondary);
+        line-height: 1.7;
+        font-size: 1.05rem;
+      }
+
+      @media (max-width: 768px) {
+        .features {
+          padding: 6rem 0;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .features-grid {
+          gap: 2rem;
+        }
+      }
+
+      /* How it Works */
+      .how-it-works {
+        background: linear-gradient(135deg, #f8f9ff 0%, #eef1fd 100%);
+        padding: 8rem 0;
+        position: relative;
+      }
+
+      .process-connection {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--primary-color);
+        opacity: 0.1;
+        max-width: 1000px;
+        margin: 0 auto;
+        z-index: 1;
+      }
+
+      .steps-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .step-card {
+        background: var(--bg-white);
+        padding: 3rem 2rem 2rem;
+        border-radius: var(--border-radius-md);
+        text-align: center;
+        position: relative;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+        height: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .step-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .step-number {
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--gradient-secondary);
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+        box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+      }
+
+      .step-card h3 {
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+        font-weight: 600;
+        font-size: 1.3rem;
+      }
+
+      .step-card p {
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      /* Testimonials Section */
+      .testimonials {
+        padding: 8rem 0;
+        background: var(--bg-white);
+      }
+
+      .testimonials-grid {
+        max-width: 1200px;
+        margin: 0 auto 3rem;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .testimonial-card {
+        background: var(--bg-light);
+        border-radius: var(--border-radius-md);
+        padding: 2.5rem;
+        position: relative;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .testimonial-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .testimonial-text::before {
+        content: '"';
+        font-size: 5rem;
+        position: absolute;
+        top: -40px;
+        left: -20px;
+        color: rgba(69, 80, 230, 0.1);
+        z-index: -1;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+
+      .testimonial-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-right: 1rem;
+      }
+
+      .testimonial-info {
+        flex: 1;
+      }
+
+      .testimonial-name {
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.2rem;
+      }
+
+      .testimonial-role {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      /* Featured Success Story */
+      .featured-success {
+        background: linear-gradient(
+          135deg,
+          rgba(19, 61, 123, 0.05) 0%,
+          rgba(122, 65, 216, 0.05) 100%
+        );
+        padding: 6rem 0;
+        margin: 4rem 0;
+      }
+
+      .featured-success-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .featured-success-content {
+        padding: 2rem;
+      }
+
+      .featured-success-title {
+        font-size: 2.2rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+
+      .featured-success-quote {
+        font-size: 1.3rem;
+        line-height: 1.6;
+        color: var(--text-primary);
+        margin-bottom: 2rem;
+        font-style: italic;
+        position: relative;
+      }
+
+      .featured-success-quote::before {
+        content: '"';
+        font-size: 4rem;
+        color: var(--accent-color);
+        position: absolute;
+        top: -20px;
+        left: -30px;
+        opacity: 0.3;
+      }
+
+      .featured-success-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .featured-success-author-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: var(--gradient-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+
+      .featured-success-author-info h4 {
+        color: var(--primary-color);
+        margin-bottom: 0.3rem;
+        font-weight: 600;
+      }
+
+      .featured-success-author-info p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+
+      .featured-success-image {
+        position: relative;
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        transform: rotate(2deg);
+        transition: var(--transition);
+      }
+
+      .featured-success-image:hover {
+        transform: rotate(0deg) scale(1.02);
+      }
+
+      .featured-success-image img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: var(--border-radius-lg);
+      }
+
+      .featured-success-image::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          rgba(19, 61, 123, 0.1),
+          rgba(240, 108, 34, 0.1)
+        );
+        border-radius: var(--border-radius-lg);
+      }
+
+      .featured-success-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: var(--gradient-secondary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        z-index: 2;
+      }
+
+      @media (max-width: 768px) {
+        .featured-success-container {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+          text-align: center;
+        }
+
+        .featured-success-image {
+          transform: rotate(0deg);
+        }
+
+        .featured-success-title {
+          font-size: 1.8rem;
+        }
+
+        .featured-success-quote {
+          font-size: 1.1rem;
+        }
+      }
+
+      /* Team Section */
+      .team {
+        padding: 8rem 0;
+        background: var(--bg-light);
+        position: relative;
+      }
+
+      .team-grid {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+      }
+
+      .team-member {
+        text-align: center;
+        padding: 3rem 2rem 2rem;
+        border-radius: var(--border-radius-md);
+        transition: var(--transition);
+        background: var(--bg-white);
+        box-shadow: var(--shadow-md);
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+      }
+
+      .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .team-member::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: var(--transition);
+      }
+
+      .team-member:hover::after {
+        transform: scaleX(1);
+      }
+
+      .team-avatar {
+        width: 140px;
+        height: 140px;
+        background: var(--gradient-tertiary);
+        border-radius: 50%;
+        margin: 0 auto 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 10px 20px rgba(19, 61, 123, 0.3);
+        position: relative;
+        transition: var(--transition);
+        border: 5px solid white;
+      }
+
+      .team-member:hover .team-avatar {
+        box-shadow: 0 15px 25px rgba(19, 61, 123, 0.4);
+        transform: scale(1.05);
+      }
+
+      .team-member h3 {
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+      }
+
+      .team-member p {
+        color: var(--accent-color);
+        font-weight: 500;
+      }
+
+      .team-social {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .team-social a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--bg-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .team-social a:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 8rem 0;
+        background: var(--bg-white);
+      }
+
+      .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 4rem;
+      }
+
+      .contact-info h3 {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+        font-weight: 600;
+      }
+
+      .contact-details {
+        margin-bottom: 2rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--bg-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        color: var(--primary-color);
+        font-size: 1.3rem;
+      }
+
+      .contact-form {
+        background: var(--bg-light);
+        padding: 3rem;
+        border-radius: var(--border-radius-md);
+        box-shadow: var(--shadow-md);
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--text-primary);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: var(--border-radius-sm);
+        background: var(--bg-white);
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        border-color: var(--primary-color);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(19, 61, 123, 0.15);
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      /* Footer */
+      .footer {
+        background: #1a1a1a;
+        color: white;
+        padding: 5rem 0 3rem;
+        text-align: center;
+        position: relative;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--tertiary-color),
+          var(--accent-color)
+        );
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .footer-heading {
+        margin-bottom: 2rem;
+        color: var(--accent-color);
+        font-size: 2.2rem;
+        font-weight: 700;
+      }
+
+      .footer-subtitle {
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.7;
+      }
+
+      .footer-contact {
+        margin: 2rem 0;
+      }
+
+      .footer-contact p {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+      }
+
+      .footer-contact p i {
+        color: var(--accent-color);
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 2.5rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        transition: var(--transition);
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: var(--border-radius-sm);
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-color);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .footer-bottom {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid #333;
+      }
+
+      .footer-copyright {
+        margin-bottom: 1rem;
+      }
+
+      .footer-quote {
+        font-style: italic;
+        margin-top: 1rem;
+        color: #999;
+      }
+
+      @media (max-width: 768px) {
+        .team-grid {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+        }
+
+        .team-avatar {
+          width: 120px;
+          height: 120px;
+          font-size: 2rem;
+        }
+
+        .contact-container {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+
+        .contact-form {
+          padding: 2rem;
+        }
+
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-links {
+          gap: 1rem;
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .stats-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Floating Animation */
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Process showcase with image */
+      .process-showcase {
+        background: linear-gradient(
+          135deg,
+          rgba(19, 61, 123, 0.03) 0%,
+          rgba(122, 65, 216, 0.03) 100%
+        );
+        padding: 4rem 0;
+        margin-top: 3rem;
+      }
+
+      .process-showcase-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .process-showcase-content h3 {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .process-showcase-content p {
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+      }
+
+      .process-showcase-stats {
+        display: flex;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .process-stat {
+        text-align: center;
+      }
+
+      .process-stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--accent-color);
+        display: block;
+      }
+
+      .process-stat-label {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-top: 0.5rem;
+      }
+
+      .process-showcase-image {
+        position: relative;
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .process-showcase-image img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .process-showcase-image:hover img {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        .process-showcase-container {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .process-showcase-stats {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="loader">
+        <svg width="80" height="80" viewBox="0 0 100 100">
+          <circle
+            cx="50"
+            cy="50"
+            r="40"
+            stroke="#4550e6"
+            stroke-width="8"
+            fill="none"
+            stroke-dasharray="251"
+            stroke-dashoffset="251"
+          >
+            <animate
+              attributeName="stroke-dashoffset"
+              dur="1.5s"
+              repeatCount="indefinite"
+              from="251"
+              to="0"
+            />
+          </circle>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="nav-container">
+        <div class="logo-section">
+          <img
+            src="./images/enkisoma_logo_2.png"
+            alt="Enkisoma Africa Logo"
+            class="logo-image"
+          />
+          <div class="logo-text">
+            <div class="logo">ENKISOMA AFRICA</div>
+            <div class="tagline">ACCESS. ENLIGHTEN. EMPOWER.</div>
+          </div>
+        </div>
+        <nav>
+          <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Solutions</a></li>
+            <li><a href="#how-it-works">Process</a></li>
+            <li><a href="#testimonials">Success Stories</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="mobile-menu-overlay"></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>
+          Bridging Africa's
+          <span class="hero-title-highlight">Digital Divide</span>
+        </h1>
+        <p class="hero-subtitle">
+          Providing equality of opportunity to every child across Africa for a
+          future of dignity and responsibility
+        </p>
+        <p class="hero-description">
+          Equipping students and educators across Africa with relevant digital
+          tools and resources that are affordable and sustainable. For just $1
+          per child per month, we're revolutionizing digital education
+          accessibility.
+        </p>
+        <div class="cta-buttons">
+          <a href="#features" class="btn btn-primary">
+            <i class="fas fa-lightbulb"></i>
+            Discover Our Solution
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <i class="fas fa-rocket"></i>
+            Get Started Today
+          </a>
+        </div>
+      </div>
+      <div class="hero-shape"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="stats-container">
+        <div class="stat-item floating">
+          <div class="stat-number">44,000</div>
+          <div class="stat-label">Schools Ready to Transform</div>
+        </div>
+        <div class="stat-item floating animation-delay-200">
+          <div class="stat-number">$1</div>
+          <div class="stat-label">Per Child Per Month</div>
+        </div>
+        <div class="stat-item floating animation-delay-400">
+          <div class="stat-number">150+</div>
+          <div class="stat-label">Educational Applications</div>
+        </div>
+        <div class="stat-item floating animation-delay-600">
+          <div class="stat-number">89%</div>
+          <div class="stat-label">Students Lack Computer Access</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="section-title-container">
+        <h2 class="section-title">
+          Our <span class="highlight-text">Hassle-Free</span> Computer Labs
+        </h2>
+        <p class="section-subtitle">
+          Four pillars that make quality digital education accessible to every
+          African child
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-hand-holding-heart"></i>
+          </div>
+          <h3 class="feature-title">Accessible</h3>
+          <p class="feature-description">
+            Low-cost pay-as-you-go computer labs enable every school across
+            Africa to have access to modern hardware and technology
+            infrastructure.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-coins"></i>
+          </div>
+          <h3 class="feature-title">Affordable</h3>
+          <p class="feature-description">
+            For only $1 per child per month, Enkisoma labs revolutionize digital
+            education affordability, making quality education accessible to all.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3 class="feature-title">Empowering</h3>
+          <p class="feature-description">
+            Our computer labs offer 150+ educational applications that can be
+            accessed offline, ensuring continuous learning regardless of
+            internet connectivity.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="feature-title">Enlightening</h3>
+          <p class="feature-description">
+            Our infrastructure supports peer-to-peer learning with teachers from
+            well-performing schools sharing lessons with remote and less
+            privileged schools.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+      <h2 class="section-title">
+        How It <span class="highlight-text">Works</span>
+      </h2>
+      <p class="section-subtitle">
+        Simple steps to transform your school's digital education capabilities
+      </p>
+
+      <div class="process-connection"></div>
+      <div class="steps-container">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Partnership & Application</h3>
+          <p>
+            Schools are shortlisted in partnership with the Ministry of
+            Education and ICT. All relevant documents are filled and submitted
+            to Enkisoma.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Lab Setup</h3>
+          <p>
+            With received data on facility and student population, we set up a
+            modern computer lab in your school with all necessary hardware.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Teacher Training</h3>
+          <p>
+            We provide comprehensive online capacity building classes for
+            liaison teachers in the school to ensure effective program
+            implementation.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Ongoing Support</h3>
+          <p>
+            Collection of the $1 monthly fee is done when school fees are paid,
+            ensuring seamless operation and continuous support.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+      <h2 class="section-title">
+        Success <span class="highlight-text">Stories</span>
+      </h2>
+      <p class="section-subtitle">
+        Hear what schools and educators are saying about our impact
+      </p>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            "Enkisoma has transformed our school's approach to digital
+            education. Our students now have access to technology they never
+            dreamed possible, and it's making a real difference in their
+            learning outcomes."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MN</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Margaret Nyambura</div>
+              <div class="testimonial-role">School Principal, Nairobi</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            "The affordability of Enkisoma's solution meant that we could
+            finally bring digital learning to our rural school. The offline
+            applications are particularly valuable given our connectivity
+            challenges."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JO</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">James Omondi</div>
+              <div class="testimonial-role">IT Teacher, Western Kenya</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            "The Ministry of Education has seen remarkable progress in digital
+            literacy rates among schools partnering with Enkisoma. Their
+            sustainable model ensures long-term benefits for our education
+            system."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">FK</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Faith Kinyua</div>
+              <div class="testimonial-role">Ministry of Education Official</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Success Story Section -->
+    <section class="featured-success">
+      <div class="featured-success-container">
+        <div class="featured-success-content">
+          <h3 class="featured-success-title">
+            Real Impact at Alliance High School
+          </h3>
+          <blockquote class="featured-success-quote">
+            "Since implementing Enkisoma's computer lab, we've seen a 300%
+            increase in our students' digital literacy scores. The principal and
+            I are amazed at how engaged our students are with technology now.
+            It's not just about computer skills – it's transforming how they
+            approach learning across all subjects."
+          </blockquote>
+          <div class="featured-success-author">
+            <div class="featured-success-author-avatar">AH</div>
+            <div class="featured-success-author-info">
+              <h4>Alliance High School</h4>
+              <p>Lab Launch Success Story</p>
+            </div>
+          </div>
+        </div>
+        <div class="featured-success-image">
+          <div class="featured-success-badge">Success Story</div>
+          <img
+            src="./images/Alliance High School Lab Launch principal plus student .jpg"
+            alt="Alliance High School Principal and Student at Lab Launch"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Showcase -->
+    <div class="process-showcase">
+      <div class="process-showcase-container">
+        <div class="process-showcase-content">
+          <h3>See Our Process in Action</h3>
+          <p>
+            At Alliance High School, we successfully launched a complete
+            computer lab that serves over 800 students. The partnership between
+            school leadership, students, and Enkisoma demonstrates how our
+            systematic approach creates lasting educational impact.
+          </p>
+          <div class="process-showcase-stats">
+            <div class="process-stat">
+              <span class="process-stat-number">800+</span>
+              <div class="process-stat-label">Students Served</div>
+            </div>
+            <div class="process-stat">
+              <span class="process-stat-number">95%</span>
+              <div class="process-stat-label">Satisfaction Rate</div>
+            </div>
+            <div class="process-stat">
+              <span class="process-stat-number">6</span>
+              <div class="process-stat-label">Months Active</div>
+            </div>
+          </div>
+        </div>
+        <div class="process-showcase-image">
+          <img
+            src="./images/Alliance High School Lab Launch .jpg"
+            alt="Alliance High School Lab Launch - Principal and Students"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+      <h2 class="section-title">
+        Meet Our <span class="highlight-text">Team</span>
+      </h2>
+      <p class="section-subtitle">
+        Dedicated professionals working to transform African education
+      </p>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="team-avatar">SK</div>
+          <h3>Sankei Ole Kenga</h3>
+          <p>Chief Executive Officer</p>
+          <div class="team-social">
+            <a href="#" aria-label="LinkedIn Profile"
+              ><i class="fab fa-linkedin-in"></i
+              ><span class="sr-only">LinkedIn</span></a
+            >
+            <a href="#" aria-label="Twitter Profile"
+              ><i class="fab fa-twitter"></i
+              ><span class="sr-only">Twitter</span></a
+            >
+            <a href="#" aria-label="Send Email"
+              ><i class="fas fa-envelope"></i
+              ><span class="sr-only">Email</span></a
+            >
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="team-avatar">EN</div>
+          <h3>Elizabeth Nyawira</h3>
+          <p>Strategy Finance - M&E</p>
+          <div class="team-social">
+            <a href="#" aria-label="LinkedIn Profile"
+              ><i class="fab fa-linkedin-in"></i
+              ><span class="sr-only">LinkedIn</span></a
+            >
+            <a href="#" aria-label="Twitter Profile"
+              ><i class="fab fa-twitter"></i
+              ><span class="sr-only">Twitter</span></a
+            >
+            <a href="#" aria-label="Send Email"
+              ><i class="fas fa-envelope"></i
+              ><span class="sr-only">Email</span></a
+            >
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="team-avatar">FK</div>
+          <h3>Fareed Khimani</h3>
+          <p>Communications Director</p>
+          <div class="team-social">
+            <a href="#" aria-label="LinkedIn Profile"
+              ><i class="fab fa-linkedin-in"></i
+              ><span class="sr-only">LinkedIn</span></a
+            >
+            <a href="#" aria-label="Twitter Profile"
+              ><i class="fab fa-twitter"></i
+              ><span class="sr-only">Twitter</span></a
+            >
+            <a href="#" aria-label="Send Email"
+              ><i class="fas fa-envelope"></i
+              ><span class="sr-only">Email</span></a
+            >
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="team-avatar">MG</div>
+          <h3>Maina Gichira</h3>
+          <p>Accounting</p>
+          <div class="team-social">
+            <a href="#" aria-label="LinkedIn Profile"
+              ><i class="fab fa-linkedin-in"></i
+              ><span class="sr-only">LinkedIn</span></a
+            >
+            <a href="#" aria-label="Twitter Profile"
+              ><i class="fab fa-twitter"></i
+              ><span class="sr-only">Twitter</span></a
+            >
+            <a href="#" aria-label="Send Email"
+              ><i class="fas fa-envelope"></i
+              ><span class="sr-only">Email</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <h2 class="section-title">
+        Get in <span class="highlight-text">Touch</span>
+      </h2>
+      <p class="section-subtitle">
+        Ready to transform your school with affordable digital education?
+      </p>
+
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <p>+254-713-587-950</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <p>info@enkisoma.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <p>Senteu Plaza, 6th floor Galana road, Nairobi</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div>
+                <p>www.enkisoma.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name" class="form-label">Your Name</label>
+              <input type="text" id="name" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Your Email</label>
+              <input type="email" id="email" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="school" class="form-label">School Name</label>
+              <input type="text" id="school" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <h2 class="footer-heading">Ready to Transform Your School?</h2>
+        <p class="footer-subtitle">
+          Join thousands of schools already providing quality digital education
+          to African children.
+        </p>
+
+        <div class="footer-contact">
+          <p><i class="fas fa-phone"></i> +254-713-587-950</p>
+          <p><i class="fas fa-envelope"></i> info@enkisoma.com</p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> Senteu Plaza, 6th floor Galana
+            road, Nairobi
+          </p>
+          <p><i class="fas fa-globe"></i> www.enkisoma.com</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#features">Solutions</a>
+          <a href="#how-it-works">Process</a>
+          <a href="#testimonials">Success Stories</a>
+          <a href="#team">Team</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright">
+            &copy; 2025 Enkisoma Africa. All rights reserved.
+          </p>
+          <p class="footer-quote">
+            "Instruction in youth is like engraving in stone." - Moroccan
+            Proverb
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Preloader
+      window.addEventListener("load", function () {
+        const preloader = document.querySelector(".preloader");
+        setTimeout(() => {
+          preloader.classList.add("fade-out");
+          setTimeout(() => {
+            preloader.style.display = "none";
+          }, 500);
+        }, 1000);
+      });
+
+      // Mobile menu toggle
+      const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+      const mobileMenu = document.querySelector(".nav-links");
+      const mobileMenuOverlay = document.querySelector(".mobile-menu-overlay");
+
+      function toggleMobileMenu() {
+        mobileMenu.classList.toggle("active");
+        mobileMenuOverlay.classList.toggle("active");
+
+        if (mobileMenu.classList.contains("active")) {
+          document.body.style.overflow = "hidden";
+          mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
+        } else {
+          document.body.style.overflow = "";
+          mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+      }
+
+      mobileMenuToggle.addEventListener("click", toggleMobileMenu);
+      mobileMenuOverlay.addEventListener("click", toggleMobileMenu);
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", function () {
+          if (mobileMenu.classList.contains("active")) {
+            toggleMobileMenu();
+          }
+        });
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Header scroll effect
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector(".header");
+        if (window.scrollY > 100) {
+          header.style.background = "rgba(69, 80, 230, 0.95)";
+          header.style.backdropFilter = "blur(10px)";
+          header.style.webkitBackdropFilter = "blur(10px)";
+          header.style.boxShadow = "0 10px 20px rgba(0,0,0,0.1)";
+          header.style.padding = "0.7rem 0";
+        } else {
+          header.style.background =
+            "linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%)";
+          header.style.backdropFilter = "none";
+          header.style.webkitBackdropFilter = "none";
+          header.style.boxShadow = "none";
+          header.style.padding = "1rem 0";
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observer for counting animation
+      const countObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const countElement = entry.target;
+              const target = parseFloat(
+                countElement.textContent.replace(/[^0-9.]/g, "")
+              );
+              const prefix = countElement.textContent.startsWith("$")
+                ? "$"
+                : "";
+              const suffix = countElement.textContent.includes("+") ? "+" : "";
+              let start = 0;
+              const duration = 2000;
+              const startTime = performance.now();
+
+              function updateCount(currentTime) {
+                const elapsedTime = currentTime - startTime;
+                if (elapsedTime < duration) {
+                  const progress = elapsedTime / duration;
+                  const currentCount = Math.floor(progress * target);
+                  countElement.textContent = prefix + currentCount + suffix;
+                  requestAnimationFrame(updateCount);
+                } else {
+                  countElement.textContent = prefix + target + suffix;
+                }
+              }
+
+              requestAnimationFrame(updateCount);
+              countObserver.unobserve(countElement);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      // Observe stat numbers for counting animation
+      document.querySelectorAll(".stat-number").forEach((el) => {
+        countObserver.observe(el);
+      });
+
+      // Observe all elements for fade in animations
+      document
+        .querySelectorAll(
+          ".feature-card, .team-member, .step-card, .testimonial-card"
+        )
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "all 0.6s ease";
+          observer.observe(el);
+        });
+
+      // Make section titles fade in
+      document
+        .querySelectorAll(".section-title, .section-subtitle")
+        .forEach((el, index) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "all 0.6s ease";
+          el.style.transitionDelay = index * 0.1 + "s";
+          observer.observe(el);
+        });
+
+      // Contact form submission
+      const contactForm = document.getElementById("contact-form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          // Here you would normally send the form data to a server
+          // For demo purposes, we'll just show a success message
+          const formFields = this.querySelectorAll("input, textarea");
+          formFields.forEach((field) => (field.value = ""));
+
+          // Create success message
+          const successMsg = document.createElement("div");
+          successMsg.className = "form-success";
+          successMsg.innerHTML =
+            '<i class="fas fa-check-circle"></i> Thank you for your message! We\'ll get back to you soon.';
+          successMsg.style.background = "rgba(46, 213, 115, 0.1)";
+          successMsg.style.color = "#2ed573";
+          successMsg.style.padding = "1rem";
+          successMsg.style.borderRadius = "8px";
+          successMsg.style.marginTop = "1rem";
+
+          // Add success message to form
+          contactForm.appendChild(successMsg);
+
+          // Remove success message after 5 seconds
+          setTimeout(() => {
+            successMsg.style.opacity = "0";
+            successMsg.style.transition = "opacity 0.5s ease";
+            setTimeout(() => {
+              contactForm.removeChild(successMsg);
+            }, 500);
+          }, 5000);
+        });
+      }
+
+      // Add accessibility to social links
+      document.querySelectorAll(".team-social a").forEach((link) => {
+        if (!link.hasAttribute("aria-label")) {
+          const iconClass = link.querySelector("i").className;
+          if (iconClass.includes("linkedin")) {
+            link.setAttribute("aria-label", "LinkedIn Profile");
+          } else if (iconClass.includes("twitter")) {
+            link.setAttribute("aria-label", "Twitter Profile");
+          } else if (iconClass.includes("envelope")) {
+            link.setAttribute("aria-label", "Send Email");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
