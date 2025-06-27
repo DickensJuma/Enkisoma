@@ -220,31 +220,45 @@
         }
 
         .nav-links {
-          position: fixed;
+          position: fixed !important;
           top: 0;
           right: -100%;
           width: 70%;
           height: 100vh;
           background: var(--primary-color);
-          flex-direction: column;
+          flex-direction: column !important;
           align-items: center;
           justify-content: center;
           padding: 2rem;
-          transition: var(--transition);
+          transition: right 0.3s ease;
           z-index: 1000;
           box-shadow: var(--shadow-lg);
+          list-style: none;
+          margin: 0;
+          gap: 0 !important;
+          transform: translateX(0);
         }
 
         .nav-links.active {
-          right: 0;
+          right: 0 !important;
+          transform: translateX(0);
         }
 
         .nav-links li {
           margin: 1.5rem 0;
+          width: 100%;
+          text-align: center;
         }
 
         .nav-links a {
           font-size: 1.2rem;
+          display: block;
+          width: 100%;
+          padding: 1rem;
+        }
+
+        .nav-links a::after {
+          display: none;
         }
 
         .mobile-menu-overlay {
@@ -255,11 +269,14 @@
           height: 100%;
           background: rgba(0, 0, 0, 0.5);
           z-index: 999;
-          display: none;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .mobile-menu-overlay.active {
-          display: block;
+          opacity: 1;
+          visibility: visible;
         }
       }
 
@@ -446,12 +463,14 @@
           background-attachment: scroll;
           background-size: cover;
           background-position: center top;
-          padding-top: 100px;
+          padding-top: 140px;
+          min-height: 100vh;
         }
 
         .hero h1 {
           font-size: 2.5rem;
           padding: 0 10px;
+          margin-top: 1rem;
         }
 
         .hero-subtitle {
@@ -1591,10 +1610,7 @@
       @media (max-width: 768px) {
         .hero h1 {
           font-size: 2.5rem;
-        }
-
-        .nav-links {
-          display: none;
+          margin-top: 1rem;
         }
 
         .cta-buttons {
@@ -2162,8 +2178,7 @@
               aria-label="Enkisoma Africa X Profile"
               target="_blank"
               rel="noopener noreferrer"
-              ><i class="fab fa-twitter"></i
-              >
+              ><i class="fab fa-twitter"></i>
               <span class="sr-only">X (formerly Twitter)</span></a
             >
             <a href="#" aria-label="Send Email"
@@ -2557,30 +2572,43 @@
       const mobileMenu = document.querySelector(".nav-links");
       const mobileMenuOverlay = document.querySelector(".mobile-menu-overlay");
 
-      function toggleMobileMenu() {
-        mobileMenu.classList.toggle("active");
-        mobileMenuOverlay.classList.toggle("active");
-
-        if (mobileMenu.classList.contains("active")) {
-          document.body.style.overflow = "hidden";
-          mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
-        } else {
-          document.body.style.overflow = "";
-          mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-      }
-
-      mobileMenuToggle.addEventListener("click", toggleMobileMenu);
-      mobileMenuOverlay.addEventListener("click", toggleMobileMenu);
-
-      // Close mobile menu when clicking on a link
-      document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", function () {
-          if (mobileMenu.classList.contains("active")) {
-            toggleMobileMenu();
-          }
-        });
+      // Debug: Check if elements exist
+      console.log("Mobile elements found:", {
+        toggle: !!mobileMenuToggle,
+        menu: !!mobileMenu,
+        overlay: !!mobileMenuOverlay,
       });
+
+      if (mobileMenuToggle && mobileMenu && mobileMenuOverlay) {
+        function toggleMobileMenu() {
+          console.log("Toggle mobile menu clicked"); // Debug
+
+          mobileMenu.classList.toggle("active");
+          mobileMenuOverlay.classList.toggle("active");
+
+          if (mobileMenu.classList.contains("active")) {
+            document.body.style.overflow = "hidden";
+            mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            console.log("Menu opened"); // Debug
+          } else {
+            document.body.style.overflow = "";
+            mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            console.log("Menu closed"); // Debug
+          }
+        }
+
+        mobileMenuToggle.addEventListener("click", toggleMobileMenu);
+        mobileMenuOverlay.addEventListener("click", toggleMobileMenu);
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+          link.addEventListener("click", function () {
+            if (mobileMenu.classList.contains("active")) {
+              toggleMobileMenu();
+            }
+          });
+        });
+      }
 
       // Smooth scrolling for navigation links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
