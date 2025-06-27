@@ -1723,6 +1723,179 @@
           justify-content: center;
         }
       }
+
+      /* Partners Section */
+      .partners {
+        padding: 8rem 0;
+        background: var(--bg-light);
+        overflow: hidden;
+      }
+
+      .partners-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        text-align: center;
+      }
+
+      .partners-slider {
+        position: relative;
+        overflow: hidden;
+        margin: 4rem 0;
+        border-radius: var(--border-radius-md);
+      }
+
+      .partners-track {
+        display: flex;
+        animation: slidePartners 30s linear infinite;
+        gap: 2rem;
+      }
+
+      .partner-item {
+        flex: 0 0 auto;
+        background: var(--bg-white);
+        border-radius: var(--border-radius-md);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 200px;
+        height: 120px;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+      }
+
+      .partner-item:hover {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-md);
+      }
+
+      .partner-logo {
+        width: 80px;
+        height: 60px;
+        object-fit: contain;
+        margin-bottom: 0.5rem;
+        filter: grayscale(100%) brightness(0.8);
+        transition: var(--transition);
+        border-radius: var(--border-radius-sm);
+        background: rgba(255, 255, 255, 0.9);
+        padding: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .partner-logo-placeholder {
+        width: 96px;
+        height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+        background: rgba(19, 61, 123, 0.05);
+        border-radius: var(--border-radius-md);
+        transition: var(--transition);
+        border: 2px solid rgba(19, 61, 123, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .partner-logo-placeholder::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(19, 61, 123, 0.05) 0%,
+          rgba(122, 65, 216, 0.05) 100%
+        );
+        z-index: 0;
+      }
+
+      .partner-logo-placeholder > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .partner-logo-placeholder i {
+        font-size: 2rem;
+        color: var(--primary-color);
+      }
+
+      .partner-logo-placeholder i.accent-color {
+        color: var(--accent-color);
+      }
+
+      .partner-logo-placeholder i.tertiary-color {
+        color: var(--tertiary-color);
+      }
+
+      .partner-item:hover .partner-logo {
+        filter: grayscale(0%) brightness(1);
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      .partner-item:hover .partner-logo-placeholder {
+        background: rgba(19, 61, 123, 0.1);
+        border-color: rgba(19, 61, 123, 0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .partner-item:hover .partner-logo-placeholder::before {
+        background: linear-gradient(
+          135deg,
+          rgba(19, 61, 123, 0.1) 0%,
+          rgba(122, 65, 216, 0.1) 100%
+        );
+      }
+
+      .partner-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      @keyframes slidePartners {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .partners-track:hover {
+        animation-play-state: paused;
+      }
+
+      @media (max-width: 768px) {
+        .partner-item {
+          min-width: 150px;
+          height: 100px;
+          padding: 1rem;
+        }
+
+        .partner-logo {
+          width: 60px;
+          height: 45px;
+          padding: 6px;
+        }
+
+        .partner-logo-placeholder {
+          width: 72px;
+          height: 57px;
+        }
+
+        .partner-name {
+          font-size: 0.8rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -2439,6 +2612,193 @@
             <i class="fas fa-calendar-alt"></i>
             Schedule a Demo
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="partners">
+      <div class="partners-container">
+        <h2 class="section-title">
+          Our <span class="highlight-text">Partners</span>
+        </h2>
+        <p class="section-subtitle">
+          Collaborating with leading organizations to transform education across
+          Africa
+        </p>
+
+        <div class="partners-slider">
+          <div class="partners-track">
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://static.wixstatic.com/media/792ffe_c4fe5581811c404e8b4dd3d8f1d30dbb~mv2.png/v1/fill/w_528,h_506,al_c/792ffe_c4fe5581811c404e8b4dd3d8f1d30dbb~mv2.png"
+                  alt="Endless OS Foundation Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">Endless OS Foundation, USA</div>
+            </div>
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/en/thumb/5/59/Anglican_Church_of_Kenya_logo.gif/250px-Anglican_Church_of_Kenya_logo.gif"
+                  alt="Anglican Church of Kenya Education Directorate Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">
+                Anglican Church of Kenya Education Directorate
+              </div>
+            </div>
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://i0.wp.com/www.tenderyetu.com/wp-content/uploads/2023/06/Communications-Authority-of-Kenya-TENDER.png?fit=256%2C256&ssl=1"
+                  alt="Information and Communication Authority of Kenya Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">
+                The Information and Communication Authority of Kenya
+              </div>
+            </div>
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://images.seeklogo.com/logo-png/39/2/kcb-group-plc-logo-png_seeklogo-392008.png"
+                  alt="Kenya Commercial Bank Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">Kenya Commercial Bank</div>
+            </div>
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2B8A8jfLz3Zc4roWgVD-zD30mxXGgljpYkw&s"
+                  alt="My Credit Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">My Credit</div>
+            </div>
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://konza.go.ke/wp-content/uploads/2024/09/cropped-Konza-Technopolis-logo.png"
+                  alt="Konza Technopolis Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">Konza Technopolis</div>
+            </div>
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cisco_academy_logo.svg/1200px-Cisco_academy_logo.svg.png"
+                  alt="CISCO NETACAD Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">CISCO NETACAD Enkisoma</div>
+            </div>
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://www.safaricom.co.ke/images/SAF-MAIN-LOGO.png"
+                  alt="Safaricom Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">Safaricom</div>
+            </div>
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9kE8xr9mRRTmLMANF3kqbqphsi6qxwRPTqg&s"
+                  alt="Kenya Institute of Curriculum Development Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">
+                Kenya Institute of Curriculum Development
+              </div>
+            </div>
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://pbs.twimg.com/profile_images/1891470731378057216/kudQhMw__400x400.jpg"
+                  alt="Ministry of Education Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">Ministry of Education</div>
+            </div>
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://senkolink.com/wp-content/uploads/2025/06/uii.jpg"
+                  alt="Senkolink Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">
+                Zanzibar Ministry of Education and Vocational Training
+              </div>
+            </div>
+            <!-- Duplicate for seamless animation -->
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://static.wixstatic.com/media/792ffe_c4fe5581811c404e8b4dd3d8f1d30dbb~mv2.png/v1/fill/w_528,h_506,al_c/792ffe_c4fe5581811c404e8b4dd3d8f1d30dbb~mv2.png"
+                  alt="Endless OS Foundation Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">Endless OS Foundation, USA</div>
+            </div>
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/en/thumb/5/59/Anglican_Church_of_Kenya_logo.gif/250px-Anglican_Church_of_Kenya_logo.gif"
+                  alt="Anglican Church of Kenya Education Directorate Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">
+                Anglican Church of Kenya Education Directorate
+              </div>
+            </div>
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://i0.wp.com/www.tenderyetu.com/wp-content/uploads/2023/06/Communications-Authority-of-Kenya-TENDER.png?fit=256%2C256&ssl=1"
+                  alt="Information and Communication Authority of Kenya Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">
+                The Information and Communication Authority of Kenya
+              </div>
+            </div>
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <img
+                  src="https://images.seeklogo.com/logo-png/39/2/kcb-group-plc-logo-png_seeklogo-392008.png"
+                  alt="Kenya Commercial Bank Logo"
+                  class="partner-logo"
+                />
+              </div>
+              <div class="partner-name">Kenya Commercial Bank</div>
+            </div>
+            <div class="partner-item">
+              <div class="partner-logo-placeholder">
+                <i class="fas fa-credit-card"></i>
+              </div>
+              <div class="partner-name">My Credit</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
