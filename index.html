@@ -1784,6 +1784,23 @@
 
       .footer-contact {
         margin: 2rem 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .office-section {
+        text-align: center;
+      }
+
+      .office-section h4 {
+        color: var(--accent-color);
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
       }
 
       .footer-contact p {
@@ -1877,6 +1894,15 @@
 
         .footer-links {
           gap: 1rem;
+        }
+
+        .footer-contact {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .office-section h4 {
+          font-size: 1rem;
         }
       }
 
@@ -2477,7 +2503,6 @@
           </div>
         </div>
         <div class="featured-success-image">
-      
           <img
             src="./images/Alliance High School Lab Launch principal plus student .jpg"
             alt="Alliance High School Principal and Student at Lab Launch"
@@ -3301,13 +3326,28 @@
         </p>
 
         <div class="footer-contact">
-          <p><i class="fas fa-phone"></i> +254-713-587-950</p>
-          <p><i class="fas fa-envelope"></i> info@enkisoma.com</p>
-          <p>
-            <i class="fas fa-map-marker-alt"></i> Senteu Plaza, 6th floor Galana
-            road, Nairobi
-          </p>
-          <p><i class="fas fa-globe"></i> www.enkisoma.com</p>
+          <div class="office-section">
+            <h4>Kenya Office</h4>
+            <p><i class="fas fa-phone"></i> +254-713-587-950</p>
+            <p><i class="fas fa-envelope"></i> info@enkisoma.org</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Senteu Plaza, 6th floor
+              Galana road, Nairobi
+            </p>
+          </div>
+
+          <div class="office-section">
+            <h4>Zanzibar Office</h4>
+            <p><i class="fas fa-phone"></i> +255 774 867 458</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Mpendae Mall, 2nd Floor, No
+              29.
+            </p>
+          </div>
+
+          <div class="office-section">
+            <p><i class="fas fa-globe"></i> www.enkisoma.org</p>
+          </div>
         </div>
 
         <div class="footer-links">
