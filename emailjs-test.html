@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmailJS Test - Enkisoma Contact Form</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #4550e6;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #333;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e1e1e1;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #4550e6;
+      }
+      textarea {
+        height: 120px;
+        resize: vertical;
+      }
+      button {
+        background: #4550e6;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        background: #3a42d6;
+      }
+      button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+      .status {
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 20px;
+        display: none;
+      }
+      .success {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+      .error {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+      .config-box {
+        background: #fff3cd;
+        border: 1px solid #ffeaa7;
+        color: #856404;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      .config-box h3 {
+        margin-top: 0;
+      }
+      code {
+        background: #f8f9fa;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📧 EmailJS Test for Enkisoma</h1>
+
+      <div class="config-box">
+        <h3>⚠️ Configuration Required</h3>
+        <p>
+          Before testing, update the JavaScript below with your EmailJS
+          credentials:
+        </p>
+        <ul>
+          <li><strong>Public Key:</strong> <code>YOUR_PUBLIC_KEY</code></li>
+          <li><strong>Service ID:</strong> <code>YOUR_SERVICE_ID</code></li>
+          <li><strong>Template ID:</strong> <code>YOUR_TEMPLATE_ID</code></li>
+        </ul>
+        <p>
+          <small
+            >Get these from your
+            <a
+              href="https://dashboard.emailjs.com"
+              target="_blank"
+              rel="noopener"
+              >EmailJS dashboard</a
+            ></small
+          >
+        </p>
+        <p>
+          <strong>⚡ Gmail API Error?</strong>
+          <a href="GMAIL_API_FIX.md" target="_blank" rel="noopener"
+            >See fix guide</a
+          >
+        </p>
+      </div>
+
+      <form id="test-form">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" value="Test User" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" value="test@example.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="school">School Name</label>
+          <input type="text" id="school" value="Test School" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" required>
+This is a test message from the EmailJS setup. If you receive this, your contact form is working perfectly!</textarea
+          >
+        </div>
+
+        <button type="submit" id="submit-btn">🧪 Test Email Send</button>
+      </form>
+
+      <div id="status" class="status"></div>
+    </div>
+
+    <script>
+      // 🔧 TODO: Update these with your actual EmailJS credentials
+      const EMAILJS_CONFIG = {
+        publicKey: "ylNgmp3PQZT9nLpo8", // From EmailJS Account → General
+        serviceId: "service_fov4bgm", // From EmailJS Email Services
+        templateId: "template_04e536h", // From EmailJS Email Templates
+      };
+
+      // Initialize EmailJS
+      emailjs.init(EMAILJS_CONFIG.publicKey);
+
+      document
+        .getElementById("test-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const submitBtn = document.getElementById("submit-btn");
+          const statusDiv = document.getElementById("status");
+
+          // Show loading state
+          submitBtn.textContent = "⏳ Sending...";
+          submitBtn.disabled = true;
+          statusDiv.style.display = "none";
+
+          // Prepare form data
+          const formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            school: document.getElementById("school").value,
+            message: document.getElementById("message").value,
+            to_email: "info@enkisoma.org",
+          };
+
+          // Check if configuration is updated
+          if (
+            EMAILJS_CONFIG.publicKey === "YOUR_PUBLIC_KEY" ||
+            EMAILJS_CONFIG.serviceId === "YOUR_SERVICE_ID" ||
+            EMAILJS_CONFIG.templateId === "YOUR_TEMPLATE_ID"
+          ) {
+            showStatus(
+              "error",
+              "❌ Please update your EmailJS credentials in the script section first!"
+            );
+            resetButton();
+            return;
+          }
+
+          // Send email via EmailJS
+          emailjs
+            .send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, formData)
+            .then(function (response) {
+              console.log("✅ SUCCESS!", response.status, response.text);
+              showStatus(
+                "success",
+                "✅ Test email sent successfully! Check info@enkisoma.org inbox."
+              );
+            })
+            .catch(function (error) {
+              console.log("❌ FAILED...", error);
+
+              let errorMsg = "❌ Test failed: ";
+              if (
+                error.text &&
+                error.text.includes("insufficient authentication scopes")
+              ) {
+                errorMsg +=
+                  "Gmail needs re-authentication! Check GMAIL_API_FIX.md guide.";
+              } else if (error.text && error.text.includes("Gmail_API")) {
+                errorMsg +=
+                  "Gmail API issue - see GMAIL_API_FIX.md for solutions.";
+              } else {
+                errorMsg += error.text || error.message || "Unknown error";
+              }
+
+              showStatus("error", errorMsg);
+            })
+            .finally(function () {
+              resetButton();
+            });
+        });
+
+      function showStatus(type, message) {
+        const statusDiv = document.getElementById("status");
+        statusDiv.className = "status " + type;
+        statusDiv.textContent = message;
+        statusDiv.style.display = "block";
+      }
+
+      function resetButton() {
+        const submitBtn = document.getElementById("submit-btn");
+        submitBtn.textContent = "🧪 Test Email Send";
+        submitBtn.disabled = false;
+      }
+    </script>
+  </body>
+</html>

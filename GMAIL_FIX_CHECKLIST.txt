@@ -1,0 +1,46 @@
+🔧 ENKISOMA CONTACT FORM - GMAIL API ERROR FIX
+===============================================
+
+❌ ERROR: "Request had insufficient authentication scopes"
+
+✅ SOLUTION (2 minutes):
+
+1️⃣ DELETE & RE-ADD GMAIL SERVICE
+   → EmailJS Dashboard → Email Services
+   → Delete Gmail service
+   → Add new Gmail service
+
+2️⃣ GRANT ALL PERMISSIONS
+   → When Gmail asks for permissions
+   → Allow "Send email on your behalf" ✓
+   → Don't skip any permissions
+
+3️⃣ TEST IMMEDIATELY
+   → Use emailjs-test.html
+   → Should work within 30 seconds
+
+🎯 ALTERNATIVE QUICK FIXES:
+
+Plan A: Use Outlook Instead
+   → Often works better than Gmail
+   → Same setup process
+
+Plan B: Use Different Gmail Account
+   → Try with Google Workspace account
+   → Personal Gmail accounts sometimes have issues
+
+Plan C: Contact Form Still Works!
+   → Built-in backup opens user's email
+   → No inquiries are lost
+   → Professional fallback experience
+
+📧 WHAT HAPPENS AFTER FIX:
+   ✅ Forms send to info@enkisoma.org instantly
+   ✅ Professional email formatting
+   ✅ Success messages for users
+   ✅ No technical errors
+
+🆘 STILL BROKEN? 
+   → Check GMAIL_API_FIX.md for detailed guide
+   → Contact form has automatic backup
+   → All school inquiries will still reach you

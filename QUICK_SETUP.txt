@@ -1,0 +1,70 @@
+📧 ENKISOMA CONTACT FORM - QUICK SETUP CARD
+==============================================
+
+🎯 GOAL: Make contact form send emails to info@enkisoma.org
+
+📋 WHAT YOU NEED (5 minutes setup):
+1. Free EmailJS account (emailjs.com)
+2. Connect your info@enkisoma.org email  
+3. Three configuration IDs
+
+🔧 STEP-BY-STEP:
+
+1️⃣ CREATE ACCOUNT
+   → Go to emailjs.com
+   → Sign up FREE
+   → Verify email
+
+2️⃣ ADD EMAIL SERVICE  
+   → Dashboard → Email Services → Add New
+   → Choose your email provider
+   → Connect info@enkisoma.org
+   → Copy SERVICE ID (service_xxxxx)
+
+3️⃣ CREATE TEMPLATE
+   → Dashboard → Email Templates → Create New
+   → Name: enkisoma_contact
+   → Subject: New Contact from {{name}}
+   → Body: Name: {{name}}, Email: {{email}}, School: {{school}}, Message: {{message}}
+   → Copy TEMPLATE ID (template_xxxxx)
+
+4️⃣ GET PUBLIC KEY
+   → Dashboard → Account → General  
+   → Copy PUBLIC KEY (user_xxxxx)
+
+5️⃣ UPDATE CODE
+   Open index.html, find line ~3569:
+   
+   REPLACE THIS:
+   emailjs.init("YOUR_PUBLIC_KEY");
+   
+   WITH YOUR KEY:
+   emailjs.init("user_your_actual_key");
+   
+   FIND LINE ~3594, REPLACE:
+   emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+   
+   WITH YOUR IDS:
+   emailjs.send('service_your_id', 'template_your_id', formData)
+
+✅ TEST IT:
+   → Open emailjs-test.html in browser
+   → Update the 3 IDs in that file too
+   → Send test email
+   → Check info@enkisoma.org inbox
+
+🆘 HELP:
+   → Check CONTACT_FORM_SETUP.md for detailed guide
+   → EmailJS has backup mailto: fallback
+   → Form validates and shows loading states
+
+💡 FEATURES ALREADY WORKING:
+   ✅ Responsive design  
+   ✅ Form validation
+   ✅ Loading animations
+   ✅ Success/error messages  
+   ✅ Accessibility compliant
+   ✅ Mobile-friendly
+   ✅ Professional styling
+
+That's it! Your contact form will be enterprise-grade! 🚀

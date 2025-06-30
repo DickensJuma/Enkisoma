@@ -12,6 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- EmailJS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
       :root {
         --primary-color: #133d7b;
@@ -3561,37 +3563,145 @@
 
       // Contact form submission
       const contactForm = document.getElementById("contact-form");
+
+      // Initialize EmailJS - Replace with your actual credentials from EmailJS dashboard
+      (function () {
+        // Using your actual EmailJS credentials
+        emailjs.init("ylNgmp3PQZT9nLpo8");
+      })();
+
       if (contactForm) {
         contactForm.addEventListener("submit", function (e) {
           e.preventDefault();
-          // Here you would normally send the form data to a server
-          // For demo purposes, we'll just show a success message
-          const formFields = this.querySelectorAll("input, textarea");
-          formFields.forEach((field) => (field.value = ""));
 
-          // Create success message
-          const successMsg = document.createElement("div");
-          successMsg.className = "form-success";
-          successMsg.innerHTML =
-            '<i class="fas fa-check-circle"></i> Thank you for your message! We\'ll get back to you soon.';
-          successMsg.style.background = "rgba(46, 213, 115, 0.1)";
-          successMsg.style.color = "#2ed573";
-          successMsg.style.padding = "1rem";
-          successMsg.style.borderRadius = "8px";
-          successMsg.style.marginTop = "1rem";
+          // Show loading state
+          const submitBtn = this.querySelector('button[type="submit"]');
+          const originalBtnText = submitBtn.textContent;
+          submitBtn.textContent = "Sending...";
+          submitBtn.disabled = true;
 
-          // Add success message to form
-          contactForm.appendChild(successMsg);
+          // Get form data
+          const formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            school: document.getElementById("school").value,
+            message: document.getElementById("message").value,
+            to_email: "info@enkisoma.org", // Your receiving email
+          };
 
-          // Remove success message after 5 seconds
-          setTimeout(() => {
-            successMsg.style.opacity = "0";
-            successMsg.style.transition = "opacity 0.5s ease";
-            setTimeout(() => {
-              contactForm.removeChild(successMsg);
-            }, 500);
-          }, 5000);
+          // Send email using EmailJS
+          // Using your actual EmailJS service and template IDs
+          emailjs
+            .send("service_fov4bgm", "template_04e536h", formData)
+            .then(
+              function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+                showMessage(
+                  "success",
+                  '<i class="fas fa-check-circle"></i> Thank you for your message! We\'ll get back to you soon.'
+                );
+
+                // Clear form fields
+                const formFields =
+                  contactForm.querySelectorAll("input, textarea");
+                formFields.forEach((field) => (field.value = ""));
+              },
+              function (error) {
+                console.log("FAILED...", error);
+
+                // More specific error handling
+                let errorMessage = "";
+                if (
+                  error.text &&
+                  error.text.includes("insufficient authentication scopes")
+                ) {
+                  errorMessage =
+                    '<i class="fas fa-exclamation-triangle"></i> Email service needs re-authentication. Opening your email client as backup...';
+                } else if (error.text && error.text.includes("Gmail_API")) {
+                  errorMessage =
+                    '<i class="fas fa-exclamation-triangle"></i> Gmail API issue detected. Using email client backup...';
+                } else {
+                  errorMessage =
+                    '<i class="fas fa-envelope"></i> Opening your email client... If it doesn\'t open automatically, please send your message to info@enkisoma.org';
+                }
+
+                // Fallback to mailto link if EmailJS fails
+                const mailtoLink = `mailto:info@enkisoma.org?subject=Contact from ${encodeURIComponent(
+                  formData.name
+                )} - Enkisoma Inquiry&body=Name: ${encodeURIComponent(
+                  formData.name
+                )}%0D%0AEmail: ${encodeURIComponent(
+                  formData.email
+                )}%0D%0ASchool: ${encodeURIComponent(
+                  formData.school
+                )}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(
+                  formData.message
+                )}`;
+
+                showMessage("info", errorMessage);
+
+                // Open mailto link
+                setTimeout(() => {
+                  window.location.href = mailtoLink;
+                }, 2000);
+              }
+            )
+            .finally(function () {
+              // Reset button
+              submitBtn.textContent = originalBtnText;
+              submitBtn.disabled = false;
+            });
         });
+      }
+
+      // Function to show messages
+      function showMessage(type, message) {
+        // Remove any existing messages
+        const existingMsg = contactForm.querySelector(".form-message");
+        if (existingMsg) {
+          existingMsg.remove();
+        }
+
+        // Create message element
+        const messageDiv = document.createElement("div");
+        messageDiv.className = `form-message form-${type}`;
+        messageDiv.innerHTML = message;
+
+        // Style based on type
+        if (type === "success") {
+          messageDiv.style.background = "rgba(46, 213, 115, 0.1)";
+          messageDiv.style.color = "#2ed573";
+          messageDiv.style.border = "1px solid rgba(46, 213, 115, 0.3)";
+        } else if (type === "error") {
+          messageDiv.style.background = "rgba(231, 76, 60, 0.1)";
+          messageDiv.style.color = "#e74c3c";
+          messageDiv.style.border = "1px solid rgba(231, 76, 60, 0.3)";
+        } else if (type === "info") {
+          messageDiv.style.background = "rgba(52, 152, 219, 0.1)";
+          messageDiv.style.color = "#3498db";
+          messageDiv.style.border = "1px solid rgba(52, 152, 219, 0.3)";
+        }
+
+        messageDiv.style.padding = "1rem";
+        messageDiv.style.borderRadius = "8px";
+        messageDiv.style.marginTop = "1rem";
+        messageDiv.style.display = "flex";
+        messageDiv.style.alignItems = "center";
+        messageDiv.style.gap = "0.5rem";
+
+        // Add message to form
+        contactForm.appendChild(messageDiv);
+
+        // Remove message after 8 seconds
+        setTimeout(() => {
+          messageDiv.style.opacity = "0";
+          messageDiv.style.transition = "opacity 0.5s ease";
+          setTimeout(() => {
+            if (messageDiv.parentNode) {
+              messageDiv.parentNode.removeChild(messageDiv);
+            }
+          }, 500);
+        }, 8000);
       }
 
       // Add accessibility to social links
