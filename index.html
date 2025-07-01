@@ -9,7 +9,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <!-- EmailJS CDN -->
@@ -128,12 +128,12 @@
       }
 
       .logo-image {
-        height: 50px;
+        height: 65px;
         width: auto;
         border-radius: 8px;
         background: white;
-        padding: 5px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       }
 
       .logo-text {
@@ -142,13 +142,13 @@
       }
 
       .logo {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         font-weight: bold;
         letter-spacing: 2px;
       }
 
       .tagline {
-        font-size: 0.9rem;
+        font-size: 1rem;
         opacity: 0.9;
         margin-top: 0.2rem;
         letter-spacing: 1px;
@@ -210,15 +210,15 @@
         }
 
         .logo-image {
-          height: 40px;
+          height: 55px;
         }
 
         .logo {
-          font-size: 1.4rem;
+          font-size: 1.2rem;
         }
 
         .tagline {
-          font-size: 0.8rem;
+          font-size: 0.9rem;
         }
 
         .nav-links {
@@ -2029,79 +2029,127 @@
       /* Partners Section */
       .partners {
         padding: 8rem 0;
-        background: var(--bg-light);
+        background: linear-gradient(135deg, #f8f9ff 0%, #f1f3ff 100%);
         overflow: hidden;
+        position: relative;
+      }
+
+      .partners::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23e1e8ff" opacity="0.3"/></pattern></defs><rect width="100%" height="100%" fill="url(%23pattern)"/></svg>');
+        z-index: 0;
       }
 
       .partners-container {
-        max-width: 1200px;
+        max-width: 1400px;
         margin: 0 auto;
         padding: 0 2rem;
         text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .partners .section-title {
+        font-family: "Inter", "Poppins", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", system-ui, sans-serif;
+        font-size: 3.5rem;
+        font-weight: 800;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 50%,
+          var(--accent-color) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+        text-shadow: 0 4px 20px rgba(69, 80, 230, 0.15);
+      }
+
+      .partners .section-title .highlight-text {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 50%,
+          var(--accent-color) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        z-index: 1;
+      }
+
+      .partners .section-title .highlight-text::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30%;
+        background-color: rgba(255, 107, 107, 0.15);
+        z-index: -1;
+        transform: rotate(-2deg);
+      }
+
+      .partners .section-subtitle {
+        font-family: "Inter", "Poppins", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", system-ui, sans-serif;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: #64748b;
+        margin-bottom: 0;
+        letter-spacing: -0.01em;
+        line-height: 1.6;
       }
 
       .partners-slider {
         position: relative;
         overflow: hidden;
-        margin: 4rem 0;
-        border-radius: var(--border-radius-md);
+        margin: 5rem 0 3rem;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.7);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 20px 60px rgba(69, 80, 230, 0.08);
+        padding: 2rem 0;
       }
 
       .partners-track {
         display: flex;
-        animation: slidePartners 15s linear infinite;
-        gap: 2rem;
+        animation: slidePartners 25s linear infinite;
+        gap: 2.5rem;
+        align-items: center;
       }
 
       .partner-item {
         flex: 0 0 auto;
-        background: var(--bg-white);
-        border-radius: var(--border-radius-md);
-        padding: 1.5rem;
+        background: linear-gradient(145deg, #ffffff 0%, #f8faff 100%);
+        border-radius: 20px;
+        padding: 2rem 1.5rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-width: 200px;
-        height: 120px;
-        box-shadow: var(--shadow-sm);
-        transition: var(--transition);
-      }
-
-      .partner-item:hover {
-        transform: scale(1.05);
-        box-shadow: var(--shadow-md);
-      }
-
-      .partner-logo {
-        width: 80px;
-        height: 60px;
-        object-fit: contain;
-        margin-bottom: 0.5rem;
-        filter: grayscale(100%) brightness(0.8);
-        transition: var(--transition);
-        border-radius: var(--border-radius-sm);
-        background: rgba(255, 255, 255, 0.9);
-        padding: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .partner-logo-placeholder {
-        width: 96px;
-        height: 76px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 0.5rem;
-        background: rgba(19, 61, 123, 0.05);
-        border-radius: var(--border-radius-md);
-        transition: var(--transition);
-        border: 2px solid rgba(19, 61, 123, 0.1);
+        min-width: 220px;
+        min-height: 140px;
+        height: auto;
+        box-shadow: 0 8px 32px rgba(69, 80, 230, 0.08);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid rgba(255, 255, 255, 0.6);
         position: relative;
         overflow: hidden;
       }
 
-      .partner-logo-placeholder::before {
+      .partner-item::before {
         content: "";
         position: absolute;
         top: 0;
@@ -2110,57 +2158,79 @@
         bottom: 0;
         background: linear-gradient(
           135deg,
-          rgba(19, 61, 123, 0.05) 0%,
-          rgba(122, 65, 216, 0.05) 100%
+          rgba(69, 80, 230, 0.02) 0%,
+          rgba(122, 65, 216, 0.02) 100%
         );
+        opacity: 0;
+        transition: opacity 0.4s ease;
         z-index: 0;
       }
 
-      .partner-logo-placeholder > * {
+      .partner-item:hover::before {
+        opacity: 1;
+      }
+
+      .partner-item:hover {
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 20px 60px rgba(69, 80, 230, 0.15);
+        border-color: rgba(69, 80, 230, 0.2);
+      }
+
+      .partner-logo {
+        width: 110px;
+        height: 85px;
+        object-fit: contain;
+        margin-bottom: 0.8rem;
+        filter: brightness(1) saturate(1.1) contrast(1.05);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border-radius: 12px;
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.9) 0%,
+          rgba(248, 250, 255, 0.9) 100%
+        );
+        padding: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         position: relative;
         z-index: 1;
-      }
-
-      .partner-logo-placeholder i {
-        font-size: 2rem;
-        color: var(--primary-color);
-      }
-
-      .partner-logo-placeholder i.accent-color {
-        color: var(--accent-color);
-      }
-
-      .partner-logo-placeholder i.tertiary-color {
-        color: var(--tertiary-color);
+        border: 2px solid rgba(69, 80, 230, 0.08);
       }
 
       .partner-item:hover .partner-logo {
-        filter: grayscale(0%) brightness(1);
-        transform: scale(1.05);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-      }
-
-      .partner-item:hover .partner-logo-placeholder {
-        background: rgba(19, 61, 123, 0.1);
-        border-color: rgba(19, 61, 123, 0.2);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .partner-item:hover .partner-logo-placeholder::before {
+        filter: brightness(1.1) saturate(1.2) contrast(1.1);
+        transform: translateY(-4px) scale(1.08) rotate(2deg);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        border-color: rgba(69, 80, 230, 0.15);
         background: linear-gradient(
-          135deg,
-          rgba(19, 61, 123, 0.1) 0%,
-          rgba(122, 65, 216, 0.1) 100%
+          145deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(248, 250, 255, 1) 100%
         );
       }
 
       .partner-name {
-        font-size: 0.9rem;
+        font-family: "Inter", "Poppins", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", system-ui, sans-serif;
+        font-size: 1rem;
         font-weight: 600;
-        color: var(--text-primary);
+        color: #334155;
         text-align: center;
-        line-height: 1.2;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        position: relative;
+        z-index: 1;
+        transition: color 0.3s ease;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+        max-width: 100%;
+        display: block;
+        padding: 0 0.5rem;
+      }
+
+      .partner-item:hover .partner-name {
+        color: var(--primary-color);
       }
 
       @keyframes slidePartners {
@@ -2176,26 +2246,105 @@
         animation-play-state: paused;
       }
 
+      /* Add a subtle pulse animation to the entire partners section */
+      @keyframes partnersPulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.002);
+        }
+      }
+
+      .partners-slider:hover {
+        animation: partnersPulse 4s ease-in-out infinite;
+      }
+
+      @media (max-width: 968px) {
+        .partners .section-title {
+          font-size: 2.8rem;
+        }
+
+        .partners .section-subtitle {
+          font-size: 1.1rem;
+        }
+      }
+
       @media (max-width: 768px) {
+        .partners {
+          padding: 6rem 0;
+        }
+
+        .partners .section-title {
+          font-size: 2.2rem;
+          margin-bottom: 0.8rem;
+        }
+
+        .partners .section-subtitle {
+          font-size: 1rem;
+          padding: 0 1rem;
+        }
+
+        .partners-slider {
+          margin: 3rem 0 2rem;
+          padding: 1.5rem 0;
+          border-radius: 16px;
+        }
+
+        .partners-track {
+          gap: 1.8rem;
+          animation: slidePartners 20s linear infinite;
+        }
+
         .partner-item {
-          min-width: 150px;
-          height: 100px;
-          padding: 1rem;
+          min-width: 180px;
+          min-height: 120px;
+          height: auto;
+          padding: 1.5rem 1rem;
+          border-radius: 16px;
         }
 
         .partner-logo {
-          width: 60px;
-          height: 45px;
-          padding: 6px;
-        }
-
-        .partner-logo-placeholder {
-          width: 72px;
-          height: 57px;
+          width: 85px;
+          height: 65px;
+          padding: 10px;
+          border-radius: 10px;
+          margin-bottom: 0.6rem;
         }
 
         .partner-name {
-          font-size: 0.8rem;
+          font-size: 0.9rem;
+          line-height: 1.2;
+          padding: 0 0.3rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .partners .section-title {
+          font-size: 1.8rem;
+        }
+
+        .partners .section-subtitle {
+          font-size: 0.95rem;
+        }
+
+        .partner-item {
+          min-width: 160px;
+          min-height: 110px;
+          height: auto;
+          padding: 1.2rem 0.8rem;
+        }
+
+        .partner-logo {
+          width: 75px;
+          height: 58px;
+        }
+
+        .partner-name {
+          font-size: 0.85rem;
+          padding: 0 0.2rem;
+          line-height: 1.1;
         }
       }
     </style>
@@ -2238,7 +2387,7 @@
           />
           <div class="logo-text">
             <div class="logo">ENKISOMA AFRICA</div>
-            <div class="tagline">ACCESS. ENLIGHTEN. EMPOWER.</div>
+            <div class="tagline">Access, enlighten, empower</div>
           </div>
         </div>
         <nav>
@@ -2250,8 +2399,8 @@
             <li><a href="#features">Solutions</a></li>
             <li><a href="#how-it-works">Process</a></li>
             <li><a href="#testimonials">Success Stories</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#media-gallery">Gallery</a></li>
+            <!-- <li><a href="#team">Team</a></li> -->
+            <!-- <li><a href="#media-gallery">Gallery</a></li> -->
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -2328,9 +2477,9 @@
           </div>
           <h3 class="feature-title">Accessible</h3>
           <p class="feature-description">
-            Low-cost pay-as-you-go computer labs enable every school across
-            Africa to have access to modern hardware and technology
-            infrastructure.
+            Low- cost, scalable and equitable pay-as-you-go smart labs are
+            transforming how Africa’s schools connect, learn, and thrive in the
+            digital age
           </p>
         </div>
 
@@ -2351,9 +2500,10 @@
           </div>
           <h3 class="feature-title">Empowering</h3>
           <p class="feature-description">
-            Our computer labs offer 150+ educational applications that can be
-            accessed offline, ensuring continuous learning regardless of
-            internet connectivity.
+            Empowering over 200,000 students with 150+ offline STEM learning
+            tools, our smart labs ensure uninterrupted, future-ready
+            education—bridging the digital divide un locking potential anytime,
+            anywhere.
           </p>
         </div>
 
@@ -2363,9 +2513,9 @@
           </div>
           <h3 class="feature-title">Enlightening</h3>
           <p class="feature-description">
-            Our infrastructure supports peer-to-peer learning with teachers from
-            well-performing schools sharing lessons with remote and less
-            privileged schools.
+            By linking high-performing schools to underserved, remote ones, we
+            scale quality education, drive peer-to-peer learning, and foster
+            shared learning
           </p>
         </div>
       </div>
@@ -2377,7 +2527,7 @@
         How It <span class="highlight-text">Works</span>
       </h2>
       <p class="section-subtitle">
-        Simple steps to transform your school's digital education capabilities
+        Simple steps to unlock your school’s full digital learning potential.
       </p>
 
       <div class="process-connection"></div>
@@ -2386,9 +2536,10 @@
           <div class="step-number">1</div>
           <h3>Partnerships & Application</h3>
           <p>
-            Schools are shortlisted in partnerships with the Ministry of
-            Education and ICT. A needs assessment is carried out. All relevant
-            documents are filled and submitted to Enkisoma.
+            Enkisoma collaborates with Ministries of Education and relevant
+            departments to shortlist schools. A comprehensive needs assessment
+            informs the planning and development of tailored computer lab
+            solutions
           </p>
         </div>
 
@@ -2396,8 +2547,9 @@
           <div class="step-number">2</div>
           <h3>Lab Setup</h3>
           <p>
-            With received data on facility and student population, we set up a
-            modern computer lab in your school with all necessary hardware.
+            Using needs assessment data and student population insights,
+            Enkisoma designs and installs a fully equipped, modern computer lab
+            tailored to each school’s needs.
           </p>
         </div>
 
@@ -2405,9 +2557,9 @@
           <div class="step-number">3</div>
           <h3>Teacher Training</h3>
           <p>
-            We provide comprehensive online capacity building classes for
-            liaison teachers in the school to ensure effective program
-            implementation.
+            Teachers & lab staff training - We offer comprehensive online
+            training for relevant teachers and lab staff to ensure effective
+            implementation and long-term sustainability of the project
           </p>
         </div>
 
@@ -2415,8 +2567,11 @@
           <div class="step-number">4</div>
           <h3>Ongoing Support</h3>
           <p>
-            Collection of the $3 monthly fee is done when school fees are paid,
-            ensuring seamless operation and continuous support.
+            We provide end-to-end support including collection of the termly $3
+            user fee alongside school fees, routine maintenance, technical
+            assistance, and continuous monitoring, evaluation, and
+            reporting—capturing learner experiences and measuring the impact of
+            the labs
           </p>
         </div>
       </div>
@@ -2434,10 +2589,10 @@
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="testimonial-text">
-            "The project's main aim is to build an eco-system that will make
-            students more competitive through enhancing digital capacities. The
-            Alliance project was a pilot that would enable Enkisoma document
-            lessons learned on setting up computer labs."
+            "The Alliance Boys Computer Project is a pilot initiative aimed at
+            strengthening digital skills among students, creating an ecosystem
+            that boosts their competitiveness. It also allows Enkisoma to gather
+            insights and best practices for setting up computer labs."
           </div>
           <div class="testimonial-author">
             <div class="testimonial-avatar">JO</div>
@@ -2450,10 +2605,9 @@
 
         <div class="testimonial-card">
           <div class="testimonial-text">
-            "The challenge of ensuring there were enough devices for all
-            students has been addressed. We now have a ratio of 20 students per
-            device with the installation of 20 more devices, improved from the
-            previous ratio."
+            "The challenge of ensuring there are enough for all students has
+            been addressed. We now have a ration of 20 students per device with
+            the launch of this new lab."
           </div>
           <div class="testimonial-author">
             <div class="testimonial-avatar">WM</div>
@@ -2468,9 +2622,10 @@
 
         <div class="testimonial-card">
           <div class="testimonial-text">
-            "The partnership with ACK aims at upgrading and development of Pay
-            Go Labs in 4,000 ACK sponsored schools with a total population of 4
-            million students in the next 5 years."
+            "Enkisoma Africa’s partnership with the Anglican Church of Kenya
+            aims to enhance digital learning by deploying Pay-Go Labs in 4,000
+            ACK-sponsored schools, reaching 4 million students over the next
+            five years."
           </div>
           <div class="testimonial-author">
             <div class="testimonial-avatar">JG</div>
@@ -2664,12 +2819,12 @@
           <div class="team-avatar">
             <img
               src="images/maina gichira finance director.jpeg"
-              alt="Maina Gichira, Accounting"
+              alt="Maina Gichira, Finance Director"
               loading="lazy"
             />
           </div>
           <h3>Maina Gichira</h3>
-          <p>Accounting</p>
+          <p>Finance Director</p>
           <div class="team-social">
             <a
               href="https://ke.linkedin.com/in/maina-gichira-97bb3546"
@@ -2754,7 +2909,10 @@
               />
               <div class="media-overlay">
                 <h4>Community Engagement</h4>
-                <p>Bringing digital education to life</p>
+                <p>
+                  Students exploring some of the installed 150+ STEM
+                  applications
+                </p>
               </div>
             </div>
 
@@ -2906,7 +3064,11 @@
               />
               <div class="media-overlay">
                 <h4>Partnerships</h4>
-                <p>Ministry of Education and Vocational Training , Zanzibar</p>
+                <p>
+                  iEnkisoma Africa CEO with the Minister, PS, and senior
+                  officials from the Ministry of Education and Vocational
+                  Training, Zanzibar
+                </p>
               </div>
             </div>
 
@@ -2918,7 +3080,12 @@
               />
               <div class="media-overlay">
                 <h4>Partnerships</h4>
-                <p>Ministry of Education and Vocational Training , Zanzibar</p>
+                <p>
+                  The CEO of Enkisoma Africa with the Minister, Permanent
+                  Secretary, and senior officials from the Ministry of Education
+                  and Vocational Training, Zanzibar, during the signing of an
+                  MOU to establish/upgrade digital labs in 25 schools.
+                </p>
               </div>
             </div>
           </div>
@@ -2946,179 +3113,151 @@
           Our <span class="highlight-text">Partners</span>
         </h2>
         <p class="section-subtitle">
-          Collaborating with leading organizations to transform education across
-          Africa
+          Together we access, enlighten, and empower - collaborating with
+          leading organizations to transform education across Africa
         </p>
 
         <div class="partners-slider">
           <div class="partners-track">
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://static.wixstatic.com/media/792ffe_c4fe5581811c404e8b4dd3d8f1d30dbb~mv2.png/v1/fill/w_528,h_506,al_c/792ffe_c4fe5581811c404e8b4dd3d8f1d30dbb~mv2.png"
-                  alt="Endless OS Foundation Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://static.wixstatic.com/media/792ffe_c4fe5581811c404e8b4dd3d8f1d30dbb~mv2.png/v1/fill/w_528,h_506,al_c/792ffe_c4fe5581811c404e8b4dd3d8f1d30dbb~mv2.png"
+                alt="Endless OS Foundation Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">Endless OS Foundation, USA</div>
             </div>
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/5/59/Anglican_Church_of_Kenya_logo.gif/250px-Anglican_Church_of_Kenya_logo.gif"
-                  alt="Anglican Church of Kenya Education Directorate Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/5/59/Anglican_Church_of_Kenya_logo.gif/250px-Anglican_Church_of_Kenya_logo.gif"
+                alt="Anglican Church of Kenya Education Directorate Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">
                 Anglican Church of Kenya Education Directorate
               </div>
             </div>
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://i0.wp.com/www.tenderyetu.com/wp-content/uploads/2023/06/Communications-Authority-of-Kenya-TENDER.png?fit=256%2C256&ssl=1"
-                  alt="Information and Communication Authority of Kenya Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://i0.wp.com/www.tenderyetu.com/wp-content/uploads/2023/06/Communications-Authority-of-Kenya-TENDER.png?fit=256%2C256&ssl=1"
+                alt="Information and Communication Authority of Kenya Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">
                 The Information and Communication Authority of Kenya
               </div>
             </div>
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://images.seeklogo.com/logo-png/39/2/kcb-group-plc-logo-png_seeklogo-392008.png"
-                  alt="Kenya Commercial Bank Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://images.seeklogo.com/logo-png/39/2/kcb-group-plc-logo-png_seeklogo-392008.png"
+                alt="Kenya Commercial Bank Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">Kenya Commercial Bank</div>
             </div>
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2B8A8jfLz3Zc4roWgVD-zD30mxXGgljpYkw&s"
-                  alt="My Credit Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2B8A8jfLz3Zc4roWgVD-zD30mxXGgljpYkw&s"
+                alt="My Credit Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">My Credit</div>
             </div>
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://konza.go.ke/wp-content/uploads/2024/09/cropped-Konza-Technopolis-logo.png"
-                  alt="Konza Technopolis Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://konza.go.ke/wp-content/uploads/2024/09/cropped-Konza-Technopolis-logo.png"
+                alt="Konza Technopolis Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">Konza Technopolis</div>
             </div>
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cisco_academy_logo.svg/1200px-Cisco_academy_logo.svg.png"
-                  alt="CISCO NETACAD Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cisco_academy_logo.svg/1200px-Cisco_academy_logo.svg.png"
+                alt="CISCO NETACAD Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">CISCO NETACAD Enkisoma</div>
             </div>
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://www.safaricom.co.ke/images/SAF-MAIN-LOGO.png"
-                  alt="Safaricom Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://www.safaricom.co.ke/images/SAF-MAIN-LOGO.png"
+                alt="Safaricom Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">Safaricom</div>
             </div>
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9kE8xr9mRRTmLMANF3kqbqphsi6qxwRPTqg&s"
-                  alt="Kenya Institute of Curriculum Development Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9kE8xr9mRRTmLMANF3kqbqphsi6qxwRPTqg&s"
+                alt="Kenya Institute of Curriculum Development Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">
                 Kenya Institute of Curriculum Development
               </div>
             </div>
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://pbs.twimg.com/profile_images/1891470731378057216/kudQhMw__400x400.jpg"
-                  alt="Ministry of Education Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://pbs.twimg.com/profile_images/1891470731378057216/kudQhMw__400x400.jpg"
+                alt="Ministry of Education Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">Ministry of Education</div>
             </div>
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://senkolink.com/wp-content/uploads/2025/06/uii.jpg"
-                  alt="Senkolink Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://senkolink.com/wp-content/uploads/2025/06/uii.jpg"
+                alt="Senkolink Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">
                 Zanzibar Ministry of Education and Vocational Training
               </div>
             </div>
             <!-- Duplicate for seamless animation -->
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://static.wixstatic.com/media/792ffe_c4fe5581811c404e8b4dd3d8f1d30dbb~mv2.png/v1/fill/w_528,h_506,al_c/792ffe_c4fe5581811c404e8b4dd3d8f1d30dbb~mv2.png"
-                  alt="Endless OS Foundation Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://static.wixstatic.com/media/792ffe_c4fe5581811c404e8b4dd3d8f1d30dbb~mv2.png/v1/fill/w_528,h_506,al_c/792ffe_c4fe5581811c404e8b4dd3d8f1d30dbb~mv2.png"
+                alt="Endless OS Foundation Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">Endless OS Foundation, USA</div>
             </div>
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/5/59/Anglican_Church_of_Kenya_logo.gif/250px-Anglican_Church_of_Kenya_logo.gif"
-                  alt="Anglican Church of Kenya Education Directorate Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/5/59/Anglican_Church_of_Kenya_logo.gif/250px-Anglican_Church_of_Kenya_logo.gif"
+                alt="Anglican Church of Kenya Education Directorate Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">
                 Anglican Church of Kenya Education Directorate
               </div>
             </div>
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://i0.wp.com/www.tenderyetu.com/wp-content/uploads/2023/06/Communications-Authority-of-Kenya-TENDER.png?fit=256%2C256&ssl=1"
-                  alt="Information and Communication Authority of Kenya Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://i0.wp.com/www.tenderyetu.com/wp-content/uploads/2023/06/Communications-Authority-of-Kenya-TENDER.png?fit=256%2C256&ssl=1"
+                alt="Information and Communication Authority of Kenya Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">
                 The Information and Communication Authority of Kenya
               </div>
             </div>
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <img
-                  src="https://images.seeklogo.com/logo-png/39/2/kcb-group-plc-logo-png_seeklogo-392008.png"
-                  alt="Kenya Commercial Bank Logo"
-                  class="partner-logo"
-                />
-              </div>
+              <img
+                src="https://images.seeklogo.com/logo-png/39/2/kcb-group-plc-logo-png_seeklogo-392008.png"
+                alt="Kenya Commercial Bank Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">Kenya Commercial Bank</div>
             </div>
             <div class="partner-item">
-              <div class="partner-logo-placeholder">
-                <i class="fas fa-credit-card"></i>
-              </div>
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2B8A8jfLz3Zc4roWgVD-zD30mxXGgljpYkw&s"
+                alt="My Credit Logo"
+                class="partner-logo"
+              />
               <div class="partner-name">My Credit</div>
             </div>
           </div>
@@ -3146,11 +3285,10 @@
               Mohammed Shein Secondary School
             </h3>
             <div class="news-meta">
+              <span><i class="fas fa-calendar"></i> July 2025</span>
               <span
-                ><i class="fas fa-calendar"></i> Saturday, June 28, 2025</span
-              >
-              <span
-                ><i class="fas fa-map-marker-alt"></i> Rahaleo, Zanzibar</span
+                ><i class="fas fa-map-marker-alt"></i> Kijangwani,
+                Zanzibar</span
               >
             </div>
             <p class="news-excerpt">
