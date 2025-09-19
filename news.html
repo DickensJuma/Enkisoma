@@ -41,7 +41,7 @@
       }
 
       body {
-        font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Poppins", sans-serif;
         line-height: 1.6;
         color: var(--text-primary);
         overflow-x: hidden;
@@ -107,30 +107,20 @@
         background: rgba(255, 255, 255, 0.1);
       }
 
-      /* Hero Section for News */
+      /* Hero */
       .news-hero {
         background: var(--gradient-primary);
         color: white;
         padding: 150px 0 80px;
         text-align: center;
-        position: relative;
       }
 
       .news-hero h1 {
         font-size: 3.5rem;
         font-weight: 700;
-        margin-bottom: 1rem;
-        line-height: 1.2;
       }
 
-      .news-hero p {
-        font-size: 1.2rem;
-        max-width: 600px;
-        margin: 0 auto;
-        opacity: 0.9;
-      }
-
-      /* News Grid Layout */
+      /* News Main */
       .news-main {
         padding: 60px 0;
         background: var(--bg-light);
@@ -145,29 +135,12 @@
         gap: 4rem;
       }
 
-      /* Main News Content */
-      .main-content {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-      }
-
+      /* Featured Article */
       .featured-article {
         background: var(--bg-white);
         border-radius: var(--border-radius-lg);
         overflow: hidden;
         box-shadow: var(--shadow-lg);
-        position: relative;
-      }
-
-      .featured-article::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 6px;
-        background: var(--gradient-primary);
       }
 
       .featured-image {
@@ -177,7 +150,7 @@
       }
 
       .featured-content {
-        padding: 3rem;
+        padding: 2rem;
       }
 
       .news-badge {
@@ -188,89 +161,40 @@
         border-radius: 20px;
         font-size: 0.9rem;
         font-weight: 600;
-        margin-bottom: 1.5rem;
       }
 
       .featured-title {
         font-size: 2.2rem;
         color: var(--primary-color);
-        margin-bottom: 1rem;
-        line-height: 1.3;
-        font-weight: 600;
+        margin: 1rem 0;
       }
 
       .news-meta {
+        font-size: 0.9rem;
         color: var(--text-secondary);
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
-
-      .news-meta i {
-        color: var(--accent-color);
+        margin-bottom: 1rem;
       }
 
       .article-excerpt {
         font-size: 1.1rem;
-        color: var(--text-primary);
-        line-height: 1.7;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
       }
 
-      .highlights-section {
-        background: rgba(19, 61, 123, 0.05);
-        border-radius: var(--border-radius-md);
-        padding: 2rem;
-        border-left: 4px solid var(--accent-color);
+      /* Read More */
+      .more-text {
+        display: none;
       }
 
-      .highlights-title {
-        color: var(--primary-color);
-        font-size: 1.3rem;
-        margin-bottom: 1.5rem;
-        font-weight: 600;
-      }
-
-      .highlights-list {
-        list-style: none;
-        padding: 0;
-      }
-
-      .highlights-list li {
-        padding: 0.8rem 0;
-        border-bottom: 1px solid rgba(19, 61, 123, 0.1);
-        display: flex;
-        align-items: flex-start;
-        gap: 0.8rem;
-      }
-
-      .highlights-list li:last-child {
-        border-bottom: none;
-      }
-
-      .highlights-list li::before {
-        content: "•";
+      .read-more-btn {
+        background: none;
+        border: none;
         color: var(--accent-color);
-        font-weight: bold;
-        font-size: 1.2rem;
-        flex-shrink: 0;
-        margin-top: 0.1rem;
-      }
-
-      /* Recent News Articles */
-      .recent-news {
-        margin-top: 3rem;
-      }
-
-      .section-title {
-        font-size: 2rem;
-        color: var(--primary-color);
-        margin-bottom: 2rem;
         font-weight: 600;
+        cursor: pointer;
+        margin-top: 0.5rem;
       }
 
+      /* News Cards */
       .news-grid {
         display: grid;
         gap: 2rem;
@@ -279,25 +203,8 @@
       .news-card {
         background: var(--bg-white);
         border-radius: var(--border-radius-lg);
-        overflow: hidden;
         box-shadow: var(--shadow-md);
-        transition: var(--transition);
-        position: relative;
-      }
-
-      .news-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-lg);
-      }
-
-      .news-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: var(--gradient-secondary);
+        overflow: hidden;
       }
 
       .news-card-image {
@@ -307,38 +214,21 @@
       }
 
       .news-card-content {
-        padding: 2rem;
+        padding: 1.5rem;
       }
 
       .news-card-badge {
-        display: inline-block;
         background: var(--accent-color);
         color: white;
         padding: 0.3rem 0.8rem;
         border-radius: 15px;
         font-size: 0.8rem;
-        font-weight: 500;
-        margin-bottom: 1rem;
       }
 
       .news-card-title {
         font-size: 1.3rem;
+        margin: 0.8rem 0;
         color: var(--primary-color);
-        margin-bottom: 0.8rem;
-        font-weight: 600;
-        line-height: 1.3;
-      }
-
-      .news-card-meta {
-        color: var(--text-secondary);
-        font-size: 0.85rem;
-        margin-bottom: 1rem;
-      }
-
-      .news-card-excerpt {
-        color: var(--text-secondary);
-        line-height: 1.6;
-        font-size: 0.95rem;
       }
 
       /* Sidebar */
@@ -350,14 +240,12 @@
         top: 120px;
         height: fit-content;
       }
-
       .sidebar-section {
         background: var(--bg-white);
         border-radius: var(--border-radius-lg);
         padding: 2rem;
         box-shadow: var(--shadow-md);
       }
-
       .sidebar-title {
         color: var(--primary-color);
         font-size: 1.5rem;
@@ -367,23 +255,18 @@
         align-items: center;
         gap: 0.8rem;
       }
-
       .sidebar-title i {
         color: var(--accent-color);
-      }
-
-      /* Social Media Feed */
+      } /* Social Media Feed */
       .social-feed {
         text-align: center;
       }
-
       .social-platforms {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
         margin-top: 1.5rem;
       }
-
       .social-platform {
         border: 2px solid rgba(19, 61, 123, 0.1);
         border-radius: var(--border-radius-md);
@@ -395,7 +278,6 @@
         position: relative;
         overflow: hidden;
       }
-
       .social-platform::before {
         content: "";
         position: absolute;
@@ -403,29 +285,36 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, rgba(29, 161, 242, 0.05) 0%, rgba(0, 119, 181, 0.05) 100%);
+        background: linear-gradient(
+          135deg,
+          rgba(29, 161, 242, 0.05) 0%,
+          rgba(0, 119, 181, 0.05) 100%
+        );
         opacity: 0;
         transition: opacity 0.3s ease;
       }
-
       .social-platform.twitter::before {
-        background: linear-gradient(135deg, rgba(29, 161, 242, 0.05) 0%, rgba(29, 161, 242, 0.1) 100%);
+        background: linear-gradient(
+          135deg,
+          rgba(29, 161, 242, 0.05) 0%,
+          rgba(29, 161, 242, 0.1) 100%
+        );
       }
-
       .social-platform.linkedin::before {
-        background: linear-gradient(135deg, rgba(0, 119, 181, 0.05) 0%, rgba(0, 119, 181, 0.1) 100%);
+        background: linear-gradient(
+          135deg,
+          rgba(0, 119, 181, 0.05) 0%,
+          rgba(0, 119, 181, 0.1) 100%
+        );
       }
-
       .social-platform:hover::before {
         opacity: 1;
       }
-
       .social-platform:hover {
         border-color: var(--primary-color);
         transform: translateY(-3px);
         box-shadow: var(--shadow-sm);
       }
-
       .social-header {
         display: flex;
         align-items: center;
@@ -433,44 +322,34 @@
         position: relative;
         z-index: 1;
       }
-
       .social-icon {
         font-size: 1.8rem;
         margin-right: 1rem;
         color: #1da1f2;
       }
-
       .social-icon.linkedin {
         color: #0077b5;
       }
-
       .social-info h4 {
         color: var(--primary-color);
         font-size: 1.2rem;
         margin-bottom: 0.3rem;
         font-weight: 600;
       }
-
       .social-info p {
         color: var(--text-secondary);
         font-size: 0.9rem;
         margin: 0;
-      }
-
-      /* Embedded Social Content */
+      } /* Embedded Social Content */
       .twitter-embed {
         margin: 1.5rem 0;
-      }
-
-      /* Newsletter Signup */
+      } /* Newsletter Signup */
       .newsletter {
         text-align: center;
       }
-
       .newsletter-form {
         margin-top: 1.5rem;
       }
-
       .newsletter-input {
         width: 100%;
         padding: 0.8rem;
@@ -480,13 +359,11 @@
         font-size: 0.95rem;
         transition: var(--transition);
       }
-
       .newsletter-input:focus {
         border-color: var(--primary-color);
         outline: none;
         box-shadow: 0 0 0 3px rgba(19, 61, 123, 0.1);
       }
-
       .newsletter-btn {
         width: 100%;
         padding: 1rem;
@@ -498,41 +375,33 @@
         cursor: pointer;
         transition: var(--transition);
       }
-
       .newsletter-btn:hover {
         background: var(--gradient-secondary);
         transform: translateY(-2px);
-      }
-
-      /* Quick Stats */
+      } /* Quick Stats */
       .quick-stats {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
         margin-top: 1.5rem;
       }
-
       .stat-item {
         text-align: center;
         padding: 1rem;
         background: rgba(19, 61, 123, 0.05);
         border-radius: var(--border-radius-sm);
       }
-
       .stat-number {
         font-size: 1.8rem;
         font-weight: 700;
         color: var(--accent-color);
         display: block;
       }
-
       .stat-label {
         font-size: 0.8rem;
         color: var(--text-secondary);
         margin-top: 0.3rem;
-      }
-
-      /* Back to Top Button */
+      } /* Back to Top Button */
       .back-to-top {
         position: fixed;
         bottom: 2rem;
@@ -551,12 +420,10 @@
         visibility: hidden;
         z-index: 1000;
       }
-
       .back-to-top.visible {
         opacity: 1;
         visibility: visible;
       }
-
       .back-to-top:hover {
         transform: translateY(-3px);
         box-shadow: 0 20px 40px rgba(19, 61, 123, 0.3);
@@ -569,113 +436,8 @@
         padding: 3rem 0 2rem;
         text-align: center;
       }
-
-      .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-      }
-
-      .footer-links {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin-bottom: 2rem;
-        flex-wrap: wrap;
-      }
-
-      .footer-links a {
-        color: white;
-        text-decoration: none;
-        transition: var(--transition);
-        font-weight: 500;
-        padding: 0.5rem 1rem;
-        border-radius: var(--border-radius-sm);
-      }
-
-      .footer-links a:hover {
-        color: var(--accent-color);
-        background: rgba(255, 255, 255, 0.05);
-      }
-
-      /* Mobile Responsive */
-      @media (max-width: 1024px) {
-        .news-container {
-          grid-template-columns: 1fr;
-          gap: 3rem;
-        }
-
-        .sidebar {
-          position: static;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          display: grid;
-          gap: 2rem;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .news-hero h1 {
-          font-size: 2.5rem;
-        }
-
-        .news-hero p {
-          font-size: 1rem;
-          padding: 0 1rem;
-        }
-
-        .news-container {
-          padding: 0 1rem;
-        }
-
-        .featured-content {
-          padding: 2rem;
-        }
-
-        .featured-title {
-          font-size: 1.8rem;
-        }
-
-        .news-card-content {
-          padding: 1.5rem;
-        }
-
-        .sidebar {
-          grid-template-columns: 1fr;
-        }
-
-        .quick-stats {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .nav-container {
-          padding: 0 1rem;
-        }
-
-        .logo-text .logo {
-          font-size: 1.2rem;
-        }
-
-        .news-hero {
-          padding: 120px 0 60px;
-        }
-
-        .news-hero h1 {
-          font-size: 2rem;
-        }
-
-        .featured-content {
-          padding: 1.5rem;
-        }
-
-        .sidebar-section {
-          padding: 1.5rem;
-        }
-      }
     </style>
   </head>
-  
   <body>
     <!-- Header -->
     <header class="header">
@@ -698,108 +460,133 @@
       </div>
     </header>
 
-    <!-- News Hero Section -->
+    <!-- Hero -->
     <section class="news-hero">
       <h1>Latest News & Updates</h1>
       <p>
-        Stay informed about our latest launches, partnerships, and impact across African schools
+        Stay informed about our latest launches, partnerships, and impact across
+        African schools
       </p>
     </section>
 
-    <!-- Main News Content -->
+    <!-- News Main -->
     <section class="news-main" id="news">
       <div class="news-container">
-        <!-- Main Content Area -->
         <div class="main-content">
           <!-- Featured Article -->
           <article class="featured-article">
-            <img 
-              src="./images/image1.jpg" 
-              alt="Dr. Ali Mohammed Shein Secondary School Launch" 
+            <img
+              src="./images/image1.jpg"
+              alt="Dr. Ali Mohammed Shein Secondary School"
               class="featured-image"
             />
             <div class="featured-content">
-              <span class="news-badge">
-                <i class="fas fa-rocket"></i> LATEST LAUNCH
-              </span>
+              <span class="news-badge">LATEST LAUNCH</span>
               <h1 class="featured-title">
-                Enkisoma Africa and MoEVT Zanzibar Complete Lab Installation at Dr. Ali Mohammed Shein Secondary School
+                Enkisoma Africa and MoEVT Zanzibar Complete Lab Installation
               </h1>
               <div class="news-meta">
-                <span><i class="fas fa-calendar"></i> September 17, 2025</span>
-                <span><i class="fas fa-map-marker-alt"></i> Kijangwani, Zanzibar</span>
-                <span><i class="fas fa-user"></i> Communications Team</span>
+                <span><i class="fas fa-calendar"></i> Sept 17, 2025</span> •
+                <span
+                  ><i class="fas fa-map-marker-alt"></i> Kijangwani,
+                  Zanzibar</span
+                >
               </div>
               <p class="article-excerpt">
-                Enkisoma Africa, in partnership with the Ministry of Education and Vocational Training (MoEVT) Zanzibar, has successfully completed the installation of a state-of-the-art computer laboratory at Dr. Ali Mohammed Shein Secondary School. This milestone represents another step forward in the government's ambitious plan to digitally transform education across Zanzibar's islands.
+                Enkisoma Africa, in partnership with MoEVT Zanzibar, has
+                successfully completed the installation of a state-of-the-art
+                computer laboratory at Dr. Ali Mohammed Shein Secondary School.
+                <span class="more-text">
+                  The installation is part of the
+                  <strong>Mambo Tehema Project</strong>, a major digital
+                  transformation initiative in Zanzibar’s education system.
+                  Phase One equipped 10 secondary schools with modern ICT labs,
+                  reaching 8,476 students. Dr. Ali Moh’d Shein Secondary School
+                  alone benefits 1,832 learners and 78 educators. Each lab is
+                  equipped with 50 computers preloaded with 150+ STEM apps and
+                  digital content. Teachers also received ICT training. The
+                  launch was presided over by Omar Ali Yussuf, Director General
+                  of ZURA, reaffirming government support. With a
+                  <strong>$3 per student per month model</strong>, Enkisoma
+                  ensures affordability and sustainability across Zanzibar’s
+                  schools.
+                </span>
               </p>
-              
-              <div class="highlights-section">
-                <h3 class="highlights-title">Key Project Highlights</h3>
-                <ul class="highlights-list">
-                  <li><strong>School:</strong> Dr. Ali Mohammed Shein Secondary School, Rahaleo Ward, Zanzibar</li>
-                  <li><strong>Students Benefiting:</strong> 1,832 students across all levels</li>
-                  <li><strong>Staff Impact:</strong> 78 educators (52 female, 26 male teachers)</li>
-                  <li><strong>Technology Deployed:</strong> 50 desktop computers with comprehensive offline learning resources</li>
-                  <li><strong>Educational Content:</strong> 150+ STEM applications and digital learning materials</li>
-                  <li><strong>Official Launch:</strong> Presided by Omar Ali Yussuf, Director General of ZURA</li>
-                  <li><strong>Cost per Student:</strong> Just $3 per month for sustainable digital education access</li>
-                </ul>
-              </div>
+              <button class="read-more-btn">Read More</button>
             </div>
           </article>
 
-          <!-- Recent News Grid -->
+          <!-- Recent News -->
           <section class="recent-news">
             <h2 class="section-title">Recent Updates</h2>
             <div class="news-grid">
-              
+              <!-- Alliance -->
               <article class="news-card">
-                <img 
-                  src="./images/Lumumba Secondary School in  Zanzibar_1.jpeg" 
-                  alt="Lumumba Secondary School Zanzibar Launch" 
-                  class="news-card-image"
-                />
-                <div class="news-card-content">
-                  <span class="news-card-badge">PARTNERSHIP</span>
-                  <h3 class="news-card-title">
-                    25 Schools in Zanzibar to Receive Modern ICT Labs
-                  </h3>
-                  <div class="news-card-meta">
-                    <i class="fas fa-calendar"></i> August 2025 • 
-                    <i class="fas fa-map-marker-alt"></i> Zanzibar, Tanzania
-                  </div>
-                  <p class="news-card-excerpt">
-                    Enkisoma Africa delegation led by Chairman Dr. Cheluget visited schools to inspect modern ICT labs built in partnership with MoEVT. The initiative targets 25 schools, preparing 20,000+ students for the digital age.
-                  </p>
-                </div>
-              </article>
-
-              <article class="news-card">
-                <img 
-                  src="./images/Alliance High School Lab Launch .jpg" 
-                  alt="Alliance High School Success Story" 
+                <img
+                  src="./images/Alliance High School Lab Launch .jpg"
+                  alt="Alliance High School"
                   class="news-card-image"
                 />
                 <div class="news-card-content">
                   <span class="news-card-badge">SUCCESS STORY</span>
                   <h3 class="news-card-title">
-                    Alliance Boys High School Reports 400% Increase in Computer Science Enrollment
+                    Alliance Boys High School Reports 400% Increase
                   </h3>
-                  <div class="news-card-meta">
-                    <i class="fas fa-calendar"></i> July 2025 • 
-                    <i class="fas fa-map-marker-alt"></i> Nairobi, Kenya
-                  </div>
                   <p class="news-card-excerpt">
-                    Following the successful launch of our pilot program, Alliance Boys High School has seen Computer Science enrollment grow from 30 students in 2018 to 167 in 2021, with 2,000 students now benefiting from modern digital learning facilities.
+                    Alliance High School has seen Computer Science enrollment
+                    grow from 30 students in 2018 to 167 in 2021.
+                    <span class="more-text">
+                      Enkisoma Africa, together with the Anglican Church of
+                      Kenya (ACK), launched a
+                      <strong>Pay-Go computer lab</strong> at Alliance High
+                      School on November 30, 2021. The lab introduced 20 new
+                      devices with STEM-focused content, serving over 2,000
+                      students. The project received
+                      <strong>USD 7,000 from Safaricom</strong>. The Alliance
+                      project serves as a <strong>pilot model</strong> for
+                      rolling out labs across 4,000 ACK-sponsored schools,
+                      targeting 4 million students nationwide.
+                    </span>
                   </p>
+                  <button class="read-more-btn">Read More</button>
                 </div>
               </article>
 
+              <!-- Zanzibar 25 Schools -->
               <article class="news-card">
-                <img 
-                  src="./images/zanzibar_ministry.jpeg" 
-                  alt="Ministry Partnership Zanzibar" 
+                <img
+                  src="./images/Lumumba Secondary School in  Zanzibar_1.jpeg"
+                  alt="Zanzibar ICT Labs"
+                  class="news-card-image"
+                />
+                <div class="news-card-content">
+                  <span class="news-card-badge">PARTNERSHIP</span>
+                  <h3 class="news-card-title">
+                    25 Schools in Zanzibar to Receive ICT Labs
+                  </h3>
+                  <p class="news-card-excerpt">
+                    Enkisoma Africa delegation led by Chairman Dr. Cheluget
+                    toured schools to inspect ICT labs installed with MoEVT
+                    Zanzibar.
+                    <span class="more-text">
+                      This rollout is part of the
+                      <strong>Mambo Tehema Project</strong>, which already
+                      equipped 10 schools, reaching 8,476 students.
+                      Beneficiaries include Dr. Ali Shein (1,832), Kidongo
+                      Chekundu (1,395), Lumumba (818). The full project targets
+                      <strong>25 schools and 20,000+ students</strong>, with
+                      Phase 2 expanding to Pemba.
+                    </span>
+                  </p>
+                  <button class="read-more-btn">Read More</button>
+                </div>
+              </article>
+
+              <!-- MOU -->
+              <article class="news-card">
+                <img
+                  src="./images/zanzibar_ministry.jpeg"
+                  alt="MOU with Zanzibar Ministry"
                   class="news-card-image"
                 />
                 <div class="news-card-content">
@@ -807,35 +594,50 @@
                   <h3 class="news-card-title">
                     MOU Signed with Zanzibar Ministry of Education
                   </h3>
-                  <div class="news-card-meta">
-                    <i class="fas fa-calendar"></i> June 2025 • 
-                    <i class="fas fa-map-marker-alt"></i> Stone Town, Zanzibar
-                  </div>
                   <p class="news-card-excerpt">
-                    Strategic partnership formalized with the Ministry of Education and Vocational Training, Zanzibar, to establish and upgrade digital labs in 25 secondary schools across the islands, reaching over 20,000 students.
+                    Enkisoma Africa formalized a strategic partnership with
+                    MoEVT Zanzibar to scale ICT labs.
+                    <span class="more-text">
+                      Enkisoma signed a
+                      <strong>Memorandum of Understanding (MOU)</strong> with
+                      MoEVT Zanzibar. The MOU covers 25 ICT labs, teacher
+                      training, and integration of STEM content. Ambassador Dr.
+                      Cheluget: *“ICT is not just a tool – it is a gateway to
+                      opportunity.”*
+                    </span>
                   </p>
+                  <button class="read-more-btn">Read More</button>
                 </div>
               </article>
-
             </div>
           </section>
         </div>
 
         <!-- Sidebar -->
         <aside class="sidebar">
-          
           <!-- Social Media Feed -->
           <div class="sidebar-section social-feed">
             <h3 class="sidebar-title">
               <i class="fas fa-share-alt"></i>
               Follow Our Updates
             </h3>
-            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
+            <p
+              style="
+                color: var(--text-secondary);
+                margin-bottom: 1.5rem;
+                font-size: 0.95rem;
+              "
+            >
               Stay connected with our latest launches and educational impact
             </p>
-            
+
             <div class="social-platforms">
-              <a href="https://x.com/enkisoma" target="_blank" rel="noopener noreferrer" class="social-platform twitter">
+              <a
+                href="https://x.com/enkisoma"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-platform twitter"
+              >
                 <div class="social-header">
                   <i class="fab fa-twitter social-icon"></i>
                   <div class="social-info">
@@ -844,8 +646,13 @@
                   </div>
                 </div>
               </a>
-              
-              <a href="https://www.linkedin.com/company/enkisoma-africa/posts" target="_blank" rel="noopener noreferrer" class="social-platform linkedin">
+
+              <a
+                href="https://www.linkedin.com/company/enkisoma-africa/posts"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-platform linkedin"
+              >
                 <div class="social-header">
                   <i class="fab fa-linkedin social-icon linkedin"></i>
                   <div class="social-info">
@@ -858,14 +665,28 @@
 
             <!-- Embedded Tweet -->
             <div class="twitter-embed">
-              <blockquote class="twitter-tweet" data-theme="light" data-width="320">
+              <blockquote
+                class="twitter-tweet"
+                data-theme="light"
+                data-width="320"
+              >
                 <p lang="en" dir="ltr">
-                  Zanzibar: Enkisoma Africa's delegation led by the Chair Ambassador Dr. Cheluget, visited schools to inspect modern ICT labs built in partnership with MoEVT. The initiative targets 25 schools, preparing 20,000+ students for the digital age. 💻 
-                  <a href="https://twitter.com/hashtag/DigitalLearning?src=hash&ref_src=twsrc%5Etfw">#DigitalLearning</a> 
-                  <a href="https://twitter.com/hashtag/Zanzibar?src=hash&ref_src=twsrc%5Etfw">#Zanzibar</a>
+                  Zanzibar: Enkisoma Africa's delegation led by the Chair
+                  Ambassador Dr. Cheluget, visited schools to inspect modern ICT
+                  labs built in partnership with MoEVT. The initiative targets
+                  25 schools, preparing 20,000+ students for the digital age. 💻
+                  <a href="https://twitter.com/hashtag/DigitalLearning?src=hash"
+                    >#DigitalLearning</a
+                  >
+                  <a href="https://twitter.com/hashtag/Zanzibar?src=hash"
+                    >#Zanzibar</a
+                  >
                 </p>
-                &mdash; Enkisoma Africa (@enkisoma) 
-                <a href="https://twitter.com/enkisoma/status/1968250089429975200?ref_src=twsrc%5Etfw">September 17, 2025</a>
+                &mdash; Enkisoma Africa (@enkisoma)
+                <a
+                  href="https://twitter.com/enkisoma/status/1968250089429975200"
+                  >September 17, 2025</a
+                >
               </blockquote>
             </div>
           </div>
@@ -876,11 +697,22 @@
               <i class="fas fa-envelope"></i>
               Newsletter
             </h3>
-            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
+            <p
+              style="
+                color: var(--text-secondary);
+                margin-bottom: 1.5rem;
+                font-size: 0.95rem;
+              "
+            >
               Get monthly updates on our impact and new school launches
             </p>
             <form class="newsletter-form">
-              <input type="email" class="newsletter-input" placeholder="Enter your email address" required />
+              <input
+                type="email"
+                class="newsletter-input"
+                placeholder="Enter your email address"
+                required
+              />
               <button type="submit" class="newsletter-btn">
                 <i class="fas fa-paper-plane"></i> Subscribe
               </button>
@@ -912,118 +744,30 @@
               </div>
             </div>
           </div>
-
         </aside>
       </div>
     </section>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" onclick="scrollToTop()">
-      <i class="fas fa-chevron-up"></i>
-    </button>
-
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-content">
-        <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="#news">News</a>
-          <a href="index.html#features">Solutions</a>
-          <a href="index.html#about">About Us</a>
-          <a href="index.html#contact">Contact</a>
-        </div>
         <p>&copy; 2025 Enkisoma Africa. All rights reserved.</p>
-        <p style="font-style: italic; color: #999; margin-top: 1rem;">
-          "Instruction in youth is like engraving in stone." - Moroccan Proverb
-        </p>
       </div>
     </footer>
 
-    <!-- Load Twitter Widget Script -->
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+    <!-- Scripts -->
     <script>
-      // Back to top functionality
-      window.addEventListener('scroll', function() {
-        const backToTop = document.querySelector('.back-to-top');
-        if (window.pageYOffset > 300) {
-          backToTop.classList.add('visible');
-        } else {
-          backToTop.classList.remove('visible');
-        }
-      });
-
-      function scrollToTop() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }
-
-      // Newsletter form submission
-      document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = this.querySelector('.newsletter-input').value;
-        
-        // Show success message
-        const button = this.querySelector('.newsletter-btn');
-        const originalText = button.innerHTML;
-        button.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
-        button.style.background = '#28a745';
-        
-        // Reset form
-        this.querySelector('.newsletter-input').value = '';
-        
-        // Reset button after 3 seconds
-        setTimeout(() => {
-          button.innerHTML = originalText;
-          button.style.background = '';
-        }, 3000);
-      });
-
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            });
+      document.querySelectorAll(".read-more-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const moreText =
+            this.previousElementSibling.querySelector(".more-text");
+          if (moreText.style.display === "inline") {
+            moreText.style.display = "none";
+            this.textContent = "Read More";
+          } else {
+            moreText.style.display = "inline";
+            this.textContent = "Read Less";
           }
-        });
-      });
-
-      // Add loading animation for images
-      document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('load', function() {
-          this.style.opacity = '1';
-        });
-        
-        // Set initial opacity
-        img.style.opacity = '0';
-        img.style.transition = 'opacity 0.3s ease';
-      });
-
-      // Initialize page
-      document.addEventListener('DOMContentLoaded', function() {
-        // Add fade-in animation to content
-        const elements = document.querySelectorAll('.news-card, .featured-article, .sidebar-section');
-        elements.forEach((el, index) => {
-          el.style.opacity = '0';
-          el.style.transform = 'translateY(20px)';
-          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-          el.style.transitionDelay = (index * 0.1) + 's';
-          
-          setTimeout(() => {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-          }, 100);
         });
       });
     </script>
