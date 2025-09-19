@@ -107,6 +107,98 @@
         background: rgba(255, 255, 255, 0.1);
       }
 
+/* Mobile Menu */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .logo-section {
+    gap: 0.5rem;
+  }
+
+  .logo-image {
+    height: 55px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+  }
+
+  .nav-links {
+    position: fixed !important;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: var(--primary-color);
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
+    list-style: none;
+    margin: 0;
+    gap: 0 !important;
+    transform: translateX(0);
+  }
+
+  .nav-links.active {
+    right: 0 !important;
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    margin: 1.5rem 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
       /* Hero */
       .news-hero {
         background: var(--gradient-primary);
@@ -436,6 +528,43 @@
         padding: 3rem 0 2rem;
         text-align: center;
       }
+      /* Sidebar paragraph styles */
+      .sidebar-section p.sidebar-desc {
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      /* Responsive layout for mobile */
+      @media (max-width: 900px) {
+        .news-container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .sidebar {
+          position: static;
+          top: auto;
+          margin-top: 2rem;
+        }
+        .featured-image,
+        .news-card-image {
+          height: 180px;
+        }
+        .featured-title {
+          font-size: 1.3rem;
+        }
+        .news-hero {
+          padding: 100px 0 40px;
+        }
+        .featured-content,
+        .news-card-content,
+        .sidebar-section {
+          padding: 1rem;
+        }
+        .section-title {
+          font-size: 1.2rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -448,6 +577,9 @@
             <div class="tagline">Access, enlighten, empower</div>
           </div>
         </div>
+        <button class="mobile-menu-toggle" aria-label="Open mobile menu" title="Open mobile menu">
+            <i class="fas fa-bars"></i>
+          </button>
         <nav>
           <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -458,6 +590,7 @@
           </ul>
         </nav>
       </div>
+      <div class="mobile-menu-overlay"></div>
     </header>
 
     <!-- Hero -->
@@ -610,7 +743,7 @@
               <!-- MOU -->
               <article class="news-card">
                 <img
-                  src="./images/image1.jpg"
+                  src="images/zanzibar_ministry.jpeg"
                   alt="MOU with Zanzibar Ministry"
                   class="news-card-image"
                 />
@@ -646,13 +779,7 @@
               <i class="fas fa-share-alt"></i>
               Follow Our Updates
             </h3>
-            <p
-              style="
-                color: var(--text-secondary);
-                margin-bottom: 1.5rem;
-                font-size: 0.95rem;
-              "
-            >
+            <p class="sidebar-desc">
               Stay connected with our latest launches and educational impact
             </p>
 
@@ -689,7 +816,33 @@
             </div>
 
             <!-- Embedded Tweet -->
-            <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Zanzibar: Enkisoma Africa’s delegation led by the the Chair Ambassador Dr. Cheluget, visited schools to inspect modern ICT labs built in partnership with MoEVT. The initiative targets 25 schools, preparing 20,000+ students for the digital age. 💻 <a href="https://twitter.com/hashtag/DigitalLearning?src=hash&amp;ref_src=twsrc%5Etfw">#DigitalLearning</a> <a href="https://twitter.com/hashtag/Zanzibar?src=hash&amp;ref_src=twsrc%5Etfw">#Zanzibar</a> <a href="https://t.co/5FgGtc6JBO">pic.twitter.com/5FgGtc6JBO</a></p>&mdash; Enkisoma Africa -Innovative Tech for Africa (@enkisoma) <a href="https://twitter.com/enkisoma/status/1968250089429975200?ref_src=twsrc%5Etfw">September 17, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <blockquote class="twitter-tweet">
+              <p lang="en" dir="ltr">
+                Zanzibar: Enkisoma Africa’s delegation led by the the Chair
+                Ambassador Dr. Cheluget, visited schools to inspect modern ICT
+                labs built in partnership with MoEVT. The initiative targets 25
+                schools, preparing 20,000+ students for the digital age. 💻
+                <a
+                  href="https://twitter.com/hashtag/DigitalLearning?src=hash&amp;ref_src=twsrc%5Etfw"
+                  >#DigitalLearning</a
+                >
+                <a
+                  href="https://twitter.com/hashtag/Zanzibar?src=hash&amp;ref_src=twsrc%5Etfw"
+                  >#Zanzibar</a
+                >
+                <a href="https://t.co/5FgGtc6JBO">pic.twitter.com/5FgGtc6JBO</a>
+              </p>
+              &mdash; Enkisoma Africa -Innovative Tech for Africa (@enkisoma)
+              <a
+                href="https://twitter.com/enkisoma/status/1968250089429975200?ref_src=twsrc%5Etfw"
+                >September 17, 2025</a
+              >
+            </blockquote>
+            <script
+              async
+              src="https://platform.twitter.com/widgets.js"
+              charset="utf-8"
+            ></script>
           </div>
 
           <!-- Newsletter Signup -->
@@ -698,13 +851,7 @@
               <i class="fas fa-envelope"></i>
               Newsletter
             </h3>
-            <p
-              style="
-                color: var(--text-secondary);
-                margin-bottom: 1.5rem;
-                font-size: 0.95rem;
-              "
-            >
+            <p class="sidebar-desc">
               Get monthly updates on our impact and new school launches
             </p>
             <form class="newsletter-form">
@@ -768,6 +915,67 @@
           } else {
             moreText.style.display = "inline";
             this.textContent = "Read Less";
+          }
+        });
+      });
+
+          const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+      const mobileMenu = document.querySelector(".nav-links");
+      const mobileMenuOverlay = document.querySelector(".mobile-menu-overlay");
+
+      // Debug: Check if elements exist
+      console.log("Mobile elements found:", {
+        toggle: !!mobileMenuToggle,
+        menu: !!mobileMenu,
+        overlay: !!mobileMenuOverlay,
+      });
+
+      if (mobileMenuToggle && mobileMenu && mobileMenuOverlay) {
+        function toggleMobileMenu() {
+          console.log("Toggle mobile menu clicked"); // Debug
+
+          mobileMenu.classList.toggle("active");
+          mobileMenuOverlay.classList.toggle("active");
+
+          if (mobileMenu.classList.contains("active")) {
+            document.body.style.overflow = "hidden";
+            mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            console.log("Menu opened"); // Debug
+          } else {
+            document.body.style.overflow = "";
+            mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            console.log("Menu closed"); // Debug
+          }
+        }
+
+        mobileMenuToggle.addEventListener("click", toggleMobileMenu);
+        mobileMenuOverlay.addEventListener("click", toggleMobileMenu);
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+          link.addEventListener("click", function () {
+            if (mobileMenu.classList.contains("active")) {
+              toggleMobileMenu();
+            }
+          });
+        });
+      }
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
           }
         });
       });
