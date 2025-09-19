@@ -1563,6 +1563,12 @@ body {
   z-index: 2;
 }
 
+.media-category .media-item:hover .media-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
+
 .media-cta {
   background: var(--gradient-primary);
   color: white;
